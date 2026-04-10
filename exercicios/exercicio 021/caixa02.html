@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grouping tags</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: gray;
+
+
+        }
+        header {
+            background-color: lightgray;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 10px;
+            border-color: black;
+          
+
+        }
+        main {
+            background-color: white;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 10px;
+        }
+        footer {
+            background-color:black;
+            color: white;
+            text-align: center;
+            padding: 1px;
+            margin: 0px;
+            border-radius: 10px;
+        }
+        footer > a {
+            color: white;
+            text-decoration: none;
+            background-color: black;
+            text-align: center;
+            
+        }
+        footer > a:hover {
+            text-decoration: underline;
+
+
+        }
+        article {
+            background-color: lightgray;
+            border-radius: 10px;
+        }
+        article > aside { 
+            background-color: rgb(104, 104, 104);
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+        nav {
+            background-color: rgb(85, 83, 83);
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 5px 3px 7px 1px rgba(0, 0, 0, 0.399);
+        }
+        nav > a {
+            background-color: rgb(83, 82, 82);
+            text-decoration: none;
+            font-weight: bold;
+            margin-right: 100px;
+            color: white;
+            
+        }
+        nav > a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+   <header>
+        <h1>meu site</h1>
+        <nav>
+            <a href="#">link</a>
+            <a href="#">link</a>
+            <a href="#">link</a>
+            <a href="#">link</a>
+            <a href="#">link</a>
+        </nav>
+
+   </header>
+   <main>
+        <section id="assuntos">
+
+        </section>
+        <section id="noticias">
+            <article>
+                <h2>noticia sobre o brasil </h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores animi neque beatae quisquam. Quo alias blanditiis impedit veritatis, expedita earum reiciendis esse at. Assumenda obcaecati accusantium expedita aspernatur magnam consequatur!</p>
+                <aside>
+                    <p>artigo escrito por josé da silva</p>
+                </aside>
+            </article>
+            <article>
+
+            </article>
+        </section>
+   </main>
+   <footer>
+        <a href="https://www.cursoemvideo.com/" target="_blank">desenvolvido em aula do cursoemvideo</a>
+   </footer>

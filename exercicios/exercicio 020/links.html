@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>links</title>
+    <style>
+
+        /* SELETORES PERSOALIZADOS
+        # = id
+        . = class
+        : = pseudo classe
+        :: = pseudo elemento
+        > = filho
+        */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+
+        }
+        a { color: rgb(245, 6, 6);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:visited {
+            color: darkred;
+        }
+        a:hover { 
+            text-decoration: underline;
+            color: black;
+
+        }
+        a:active {
+            color: yellow;
+        }
+        .especial::before {
+            content: '→';
+        }
+        .especial::after {
+            content: '←';
+            
+
+        }
+        .especial:hover {
+            background-color: rgba(255, 0, 0, 0.537);
+        }
+
+
+    </style>
+</head>
+<body>
+    <h1>personalizando links</h1>
+    <ul>
+        <li><a href="https://github.com" target="_blank">repositorio github</a></li>
+        <li><a href="https://youtube.com" target="_blank" class="especial">canal yt</a></li>
+        <li><a href="https://cursoemvideo.com" target="_blank">site curso em video</a></li>
+    </ul>
+</body>
+</html>
