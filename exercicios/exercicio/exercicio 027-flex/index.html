@@ -7,28 +7,46 @@
     <style>
 
         div.container {
-            background-color: lightsalmon;
+            background-color: rgb(0, 0, 0);
             display: flex;
+            width: 80%;
+            height: 50px;
+            border-radius: 20px;
+            margin: auto;
+            position: relative;
+            margin-top: 50vh;
 
         }
 
-        div.item {
-            background-color: lightskyblue;
+        .item {
+            background-color: rgb(113, 113, 113);
             border: 1px solid black;
+            
+            margin: auto;
+            border-radius: 100%;
+            width: 40px;
+            height: 40px;
 
-            flex:auto
+            flex:none
         }
+
+        .item:hover {
+            background-color: rgb(255, 255, 255);
+            transform: scale(1.5) ;
+            transition: all 0.8s ease;
+        }
+
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="item">A</div>
-        <div class="item">B</div>
-        <div class="item">C</div>
-        <div class="item">D</div>
-        <div class="item">E</div>
-        <div class="item">F</div>
-        <div class="item">G</div>
+        <button class="item" ></button>
+        <button class="item"></button>
+        <button class="item"></button>
+        <button class="item"></button>
+        <button class="item"></button>
+        <button class="item"></button>
+        <button class="item"></button>>
     </div>
 </body>
 </html>
