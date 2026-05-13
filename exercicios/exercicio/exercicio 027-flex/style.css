@@ -1,0 +1,43 @@
+@charset 'utf-8';
+
+.item1:hover {
+    background-color: rgb(0, 248, 0);
+    transform: scale(1.5) ;
+    transition: all 0.8s ease;
+}
+
+.item2:hover {
+    background-color: rgb(255, 1, 1);
+    transform: scale(1.5) ;
+    transition: all 0.8s ease;
+}
+
+.item3:hover {
+    background-color: rgb(128, 0, 255);
+    transform: scale(1.5) ;
+    transition: all 0.8s ease;
+}
+
+.item4:hover {
+    background-image: linear-gradient(to bottom, orange, purple);
+    transform: scale(1.5) ;
+    transition: all 0.8s ease;
+}
+
+.item5:hover {
+    background-color: rgb(255, 255, 255);
+    transform: scale(1.5) ;
+    transition: all 0.8s ease;
+}
+
+.item6:hover {
+    background-color: rgb(255, 255, 255);
+    transform: scale(1.5) ;
+    transition: all 0.8s ease;
+}
+
+.item7:hover {
+    background-color: rgb(255, 255, 255);
+    transform: scale(1.5) ;
+    transition: all 0.8s ease;
+}
