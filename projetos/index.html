@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Biblioteca de Cursos</title>
+    <style>
+        /* Estilos Gerais (Visual Clean e Moderno) */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f4f7f6;
+            color: #2c3e50;
+            line-height: 1.6;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            margin-bottom: 40px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 20px;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            margin: 0;
+            color: #1a202c;
+            font-weight: 700;
+        }
+
+        header p {
+            margin: 5px 0 0 0;
+            color: #718096;
+        }
+
+        /* Organização por Categorias */
+        .categoria {
+            margin-bottom: 35px;
+        }
+
+        .categoria h2 {
+            font-size: 1.3rem;
+            color: #2b6cb0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 15px;
+            border-left: 4px solid #2b6cb0;
+            padding-left: 10px;
+        }
+
+        /* Links e Cards */
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .curso-link {
+            display: block;
+            background: #ffffff;
+            padding: 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #2d3748;
+            font-weight: 500;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* Efeito ao passar o mouse (Dá vida ao site) */
+        .curso-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.08);
+            border-color: #cbd5e0;
+            color: #2b6cb0;
+        }
+
+        /* Estilo especial para cursos concluídos */
+        .categoria-concluidos .curso-link {
+            border-left: 4px solid #38a169;
+        }
+        .categoria-concluidos h2 {
+            color: #38a169;
+            border-left-color: #38a169;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Biblioteca de Cursos</h1>
+            <p>Para ajudar a começar a estudar juntei alguns cursos que acho que possam te dar uma base muito boa, alguns tem mais de um modulo, mas assim que fizer login na plataforma da pra ver direitinho, basta clicar no nome do curso que voce achar interessante, duvidas ou qualquer coisa, manda mensagem!</p>
+        </header>
+
+        <section class="categoria">
+            <h2>Base de Programação</h2>
+            <div class="links-grid">
+                <a href="https://www.cursoemvideo.com/curso/curso-de-algoritmo/" target="_blank" class="curso-link">Lógica de Programação e Algoritmos</a>
+                <a href="https://www.cursoemvideo.com/curso/bases-numericas/" target="_blank" class="curso-link">Bases Numéricas</a>
+            </div>
+        </section>
+
+        <section class="categoria">
+            <h2>Linguagens de Programação</h2>
+            <div class="links-grid">
+                <a href="https://www.cursoemvideo.com/curso/python-3-mundo-1/" target="_blank" class="curso-link">Curso de Python do Zero</a>
+                <a href="https://www.cursoemvideo.com/curso/javascript/" target="_blank" class="curso-link">JavaScript Moderno (ES6+)</a>
+                <a href="http://cursoemvideo.com/curso/java-basico/" target="_blank" class="curso-link">Java Básico</a>
+            </div>
+        </section>
+
+        <section class="categoria">
+            <h2>Hardware</h2>
+            <div class="links-grid">
+                <a href="https://www.cursoemvideo.com/curso/hardware/" target="_blank" class="curso-link">Hardware geral</a>
+            </div>
+        </section>
+
+        <section class="categoria">
+            <h2>Cursos tambem <strong>importantes</strong></h2>
+            <div class="links-grid">
+                <a href="https://www.cursoemvideo.com/curso/curso-de-git-e-github/" target="_blank" class="curso-link">Git e GitHub</a>
+                <a href="https://www.cursoemvideo.com/curso/seguranca-da-informacao-modulo-00/" target="_blank" class="curso-link">Segurança da Informação</a>
+                <a href="https://www.cursoemvideo.com/curso/mysql/" target="_blank" class="curso-link">MySQL (Banco de Dados)</a>   
+                <a href="https://www.cursoemvideo.com/curso/curso-de-ingles-para-iniciantes-modulo-1-beginners-gratis-e-completo/" target="_blank" class="curso-link">Inglês</a> 
+                <a href="https://www.cursoemvideo.com/curso/curso-gratis-de-inteligencia-artificial/" target="_blank" class="curso-link">Inteligência Artificial</a> 
+            </div>
+        </section>
+
+        <section class="categoria categoria-concluidos">
+            <h2>Cursos Concluídos</h2>
+            <div class="links-grid">
+                <a href="https://www.cursoemvideo.com/curso/html5-css3-modulo1/" target="_blank" class="curso-link">✔ HTML e CSS Prático</a>
+                <a href="https://www.cursoemvideo.com/curso/javascript/" target="_blank" class="curso-link">✔ Javascript básico</a>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>
