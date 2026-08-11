@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doce Aurora - Visual Novel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --purple-main: #6b21a8;
+            --purple-light: #f3e8ff;
+            --lavender: #a855f7;
+            --teal-theo: #0d9488;
+            --gold-enzo: #ca8a04;
+            --blue-gabriel: #1e3a8a;
+            --text-dark: #1f2937;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; user-select: none; }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* TELA DO JOGO (Proporção 16:9) */
+        #game-container {
+            width: 1024px;
+            height: 576px;
+            background-color: #333;
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            background-size: cover;
+            background-position: center;
+            transition: background-image 0.5s ease-in-out;
+        }
+
+        /* CENÁRIOS PADRÃO (Placeholders visuais em gradiente enquanto não há imagens) */
+        .bg-patio { background: linear-gradient(to bottom, #b493e6, #f3e8ff); }
+        .bg-sala { background: linear-gradient(to bottom, #fed7aa, #ffedd5); }
+        .bg-preto { background: #000; }
+
+        /* INTERFACE DE AFINIDADE (LOVEÔMETRO) */
+        #ui-meters {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.85);
+            padding: 15px;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            z-index: 10;
+            backdrop-filter: blur(5px);
+        }
+        .meter-row { display: flex; align-items: center; justify-content: space-between; width: 180px; font-size: 14px; font-weight: bold; }
+        .meter-bar { width: 100px; height: 10px; background: #e5e7eb; border-radius: 5px; overflow: hidden; }
+        .meter-fill { height: 100%; width: 50%; transition: width 0.3s ease; }
+        #fill-theo { background-color: var(--teal-theo); }
+        #fill-enzo { background-color: var(--gold-enzo); }
+        #fill-gabriel { background-color: var(--blue-gabriel); }
+
+        /* BOTÃO DA CÂMERA */
+        #camera-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            font-size: 20px;
+            color: var(--purple-main);
+            display: none;
+            z-index: 10;
+            transition: transform 0.2s;
+        }
+        #camera-btn:hover { transform: scale(1.1); }
+
+        /* SPRITES DOS PERSONAGENS */
+        #sprites-layer {
+            position: absolute;
+            bottom: 120px;
+            width: 100%;
+            height: 350px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            gap: 40px;
+            padding: 0 50px;
+        }
+        .sprite {
+            height: 100%;
+            width: 200px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: bottom center;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .sprite.active { opacity: 1; transform: translateY(0); }
+        .sprite.focus { filter: drop-shadow(0 0 12px rgba(168,85,247,0.6)); transform: scale(1.05); }
+        
+        /* ESTILIZAÇÃO TEMPORÁRIA DOS SPRITES (Silhuetas Estilizadas) */
+        .char-box { padding: 15px; border-radius: 15px; color: white; font-weight: bold; text-align: center; width: 140px; box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
+        .sprite-bia .char-box { background: #ec4899; }
+        .sprite-theo .char-box { background: var(--teal-theo); border-top: 5px solid #2dd4bf; }
+        .sprite-enzo .char-box { background: var(--gold-enzo); border-top: 5px solid #fef08a; }
+        .sprite-gabriel .char-box { background: var(--blue-gabriel); border-top: 5px solid #60a5fa; }
+
+        /* CAIXA DE DIÁLOGO (Estilo Amor Doce) */
+        #textbox-container {
+            position: absolute;
+            bottom: 15px;
+            width: calc(100% - 30px);
+            left: 15px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            padding: 20px 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            cursor: pointer;
+            z-index: 5;
+            border: 2px solid var(--purple-light);
+        }
+        #name-tag {
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--purple-main);
+            margin-bottom: 8px;
+            display: inline-block;
+            background: var(--purple-light);
+            padding: 2px 14px;
+            border-radius: 20px;
+        }
+        #dialogue-text {
+            font-size: 18px;
+            color: var(--text-dark);
+            line-height: 1.5;
+            min-height: 54px;
+        }
+        .click-hint { position: absolute; bottom: 12px; right: 20px; font-size: 12px; color: var(--lavender); animation: bounce 1s infinite alternate; }
+
+        /* CAIXA DE ESCOLHAS */
+        #choices-container {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(107, 33, 168, 0.2);
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            z-index: 20;
+            backdrop-filter: blur(3px);
+        }
+        .choice-btn {
+            background: white;
+            color: var(--purple-main);
+            border: 2px solid var(--purple-main);
+            padding: 14px 40px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 60%;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.2s ease;
+        }
+        .choice-btn:hover { background: var(--purple-main); color: white; transform: translateY(-2px); }
+
+        /* ANIMAÇÃO */
+        @keyframes bounce { from { transform: translateY(0); } to { transform: translateY(5px); } }
+        
+        /* FLASH DA CÂMERA */
+        #flash {
+            position: absolute; top:0; left:0; width:100%; height:100%;
+            background: white; opacity: 0; pointer-events: none; z-index: 100;
+        }
+        .flash-active { animation: do-flash 0.4s ease-out; }
+        @keyframes do-flash { 0% { opacity: 1; } 100% { opacity: 0; } }
+    </style>
+</head>
+<body>
+
+<div id="game-container" class="bg-preto">
+    <div id="flash"></div>
+
+    <button id="camera-btn" onclick="takePhoto()"><i class="fa-solid fa-camera"></i></button>
+    
+    <div id="ui-meters">
+        <div class="meter-row"><span>Theo</span><div class="meter-bar"><div id="fill-theo" class="meter-fill"></div></div></div>
+        <div class="meter-row"><span>Enzo</span><div class="meter-bar"><div id="fill-enzo" class="meter-fill"></div></div></div>
+        <div class="meter-row"><span>Gabriel</span><div class="meter-bar"><div id="fill-gabriel" class="meter-fill"></div></div></div>
+    </div>
+
+    <div id="sprites-layer">
+        <div id="sprite-bia" class="sprite sprite-bia"><div class="char-box">Bia<br>✨</div></div>
+        <div id="sprite-theo" class="sprite sprite-theo"><div class="char-box">Theo<br>🎨</div></div>
+        <div id="sprite-enzo" class="sprite sprite-enzo"><div class="char-box">Enzo<br>🏊‍♂️</div></div>
+        <div id="sprite-gabriel" class="sprite sprite-gabriel"><div class="char-box">Gabriel<br>🎹</div></div>
+    </div>
+
+    <div id="choices-container"></div>
+
+    <div id="textbox-container" onclick="nextDialogue()">
+        <div id="name-tag">Narrador</div>
+        <div id="dialogue-text">Carregando história...</div>
+        <div class="click-hint">Clique para continuar <i class="fa-solid fa-chevron-right"></i></div>
+    </div>
+</div>
+
+<script>
+    // ESTADO DO JOGO
+    let currentStep = 0;
+    let affinities = { theo: 50, enzo: 50, gabriel: 50 };
+    let album = [];
+
+    // ROTEIRO (PROLOGUE)
+    const script = [
+        { speaker: "Manu", text: "(São Paulo ficou para trás... Agora meu mundo se resume a essa cidade com cheiro de maresia e árvores roxas por toda parte.)", bg: "bg-patio" },
+        { speaker: "Bia", text: "Manu!! Você vai ficar aí parada plantada olhando pro teto ou vai me deixar te mostrar o melhor pátio de colégio do estado?", sprite: "bia", focus: "bia" },
+        { speaker: "Manu", text: "Calma, Bia. Eu só estou... registrando a mudança. Olhe para essas árvores, elas realmente florescem no inverno?", sprite: "bia" },
+        { speaker: "Bia", text: "Menina, as Jacarandás daqui ligam zero pras leis da física ou da botânica. Elas só brilham! Olha só!", sprite: "bia", focus: "bia" },
+        { speaker: "Narrador", text: "De repente, uma rajada de vento balança as copas das árvores. Uma chuva de pétalas roxas cai sobre o pátio.", bg: "bg-patio", sprite: "" },
+        { speaker: "Narrador", text: "Uma folha de jacarandá perfeitamente preservada cai exatamente em cima do caderno de rascunhos que você segurava.", sprite: "" },
+        { speaker: "Narrador", text: "Três veteranos que passavam pelo pátio param imediatamente, olhando para você de maneiras completamente diferentes.", sprite: "" },
+        
+        // Apresentando Theo
+        { speaker: "Theo", text: "...A natureza tem modos estranhos de escolher onde colocar os seus melhores tons.", sprite: "theo", focus: "theo" },
+        // Apresentando Enzo
+        { speaker: "Enzo", text: "Ei, caloura! Isso aí é sinal de sorte no primeiro dia! Se eu fosse você, guardava de recordação!", sprite: "theo enzo", focus: "enzo" },
+        // Apresentando Gabriel
+        { speaker: "Gabriel", text: "Com licença... Você não deveria deixar suas coisas espalhadas no meio da passagem do pátio central. Pode... atrapalhar.", sprite: "theo enzo gabriel", focus: "gabriel" },
+        
+        // Ponto de Decisão
+        { 
+            speaker: "Narrador", 
+            text: "O que você faz a respeito do comentário dos três rapazes?", 
+            sprite: "theo enzo gabriel",
+            choices: [
+                { text: "Olhar para Theo e agradecer o comentário poético.", targetStep: 11, affinity: { char: 'theo', val: 15 } },
+                { text: "Sorrir para Enzo e dizer que aceita um pouco de sorte.", targetStep: 13, affinity: { char: 'enzo', val: 15 } },
+                { text: "Responder Gabriel ironicamente sobre o 'espaço público'.", targetStep: 15, affinity: { char: 'gabriel', val: 15 } }
+            ]
+        },
+        
+        // Rota Theo (Passo 11)
+        { speaker: "Theo", text: "(Ele desvia o olhar, ajeitando os fones no pescoço, mas você nota um quase imperceptível sorriso torto). É... tanto faz.", sprite: "theo enzo gabriel", focus: "theo", next: 17 },
+        { speaker: "Narrador", text: "Theo se afasta em silêncio, deixando o cheiro de tinta fresca no ar.", next: 17 },
+        
+        // Rota Enzo (Passo 13)
+        { speaker: "Enzo", text: "Isso aí! Esse é o espírito! Se precisar de um tour completo de verdade pela escola, avisa o capitão aqui!", sprite: "theo enzo gabriel", focus: "enzo", next: 17 },
+        { speaker: "Narrador", text: "Enzo pisca para você antes de correr em direção aos vestiários da natação.", next: 17 },
+        
+        // Rota Gabriel (Passo 15)
+        { speaker: "Gabriel", text: "(Ele arruma os óculos de armação fina, levemente pego de surpresa). Só estou zelando pela ordem do conselho, Ferraz. Esperava que se lembrasse disso.", sprite: "theo enzo gabriel", focus: "gabriel", next: 17 },
+        { speaker: "Manu", text: "(Espere... Ele disse meu sobrenome? Como ele sabe quem eu sou?)", next: 17 },
+        
+        // Conclusão do Prólogo (Passo 17)
+        { speaker: "Bia", text: "Amiga do céu... Você mal pisou aqui e já chamou a atenção do trio de ouro da escola? Garota, tira uma foto disso pra eternizar!", sprite: "bia", focus: "bia", showCamera: true },
+        { speaker: "Narrador", text: "Mecânica desbloqueada: Quando o ícone da Câmera acender no canto superior esquerdo, você pode registrar o momento para seu Álbum!", sprite: "bia" },
+        { speaker: "Narrador", text: "Fim do Prólogo de Doce Aurora. O outono está apenas começando...", bg: "bg-preto", sprite: "" }
+    ];
+
+    // INICIALIZADOR
+    function updateUI() {
+        document.getElementById('fill-theo').style.width = affinities.theo + '%';
+        document.getElementById('fill-enzo').style.width = affinities.enzo + '%';
+        document.getElementById('fill-gabriel').style.width = affinities.gabriel + '%';
+    }
+
+    function renderStep() {
+        const data = script[currentStep];
+        if (!data) return;
+
+        // Atualiza Texto e Nome
+        document.getElementById('name-tag').innerText = data.speaker;
+        document.getElementById('dialogue-text').innerText = data.text;
+
+        // Atualiza Cenário
+        if (data.bg) {
+            const container = document.getElementById('game-container');
+            container.className = ''; // limpa bgs antigos
+            container.classList.add(data.bg);
+        }
+
+        // Exibe ou oculta o botão da câmera
+        document.getElementById('camera-btn').style.display = data.showCamera ? 'block' : 'none';
+
+        // Atualiza Sprites
+        document.querySelectorAll('.sprite').forEach(el => el.classList.remove('active', 'focus'));
+        if (data.sprite) {
+            const activeSprites = data.sprite.split(' ');
+            activeSprites.forEach(spriteName => {
+                const el = document.getElementById(`sprite-${spriteName}`);
+                if (el) el.classList.add('active');
+            });
+        }
+        if (data.focus) {
+            const el = document.getElementById(`sprite-${data.focus}`);
+            if (el) el.classList.add('focus');
+        }
+
+        // Processa Escolhas
+        const choicesContainer = document.getElementById('choices-container');
+        if (data.choices) {
+            choicesContainer.innerHTML = '';
+            choicesContainer.style.display = 'flex';
+            data.choices.forEach(choice => {
+                const btn = document.createElement('button');
+                btn.className = 'choice-btn';
+                btn.innerText = choice.text;
+                btn.onclick = () => selectChoice(choice);
+                choicesContainer.appendChild(btn);
+            });
+        } else {
+            choicesContainer.style.display = 'none';
+        }
+    }
+
+    function nextDialogue() {
+        // Se houver uma escolha ativa, impede de passar clicando na caixa de texto
+        if (script[currentStep].choices) return;
+
+        let next = script[currentStep].next;
+        if (next !== undefined) {
+            currentStep = next;
+        } else {
+            currentStep++;
+        }
+
+        if (currentStep < script.length) {
+            renderStep();
+        }
+    }
+
+    function selectChoice(choice) {
+        if (choice.affinity) {
+            affinities[choice.affinity.char] = Math.min(100, affinities[choice.affinity.char] + choice.affinity.val);
+            updateUI();
+        }
+        currentStep = choice.targetStep;
+        renderStep();
+    }
+
+    function takePhoto() {
+        const flash = document.getElementById('flash');
+        flash.classList.add('flash-active');
+        setTimeout(() => flash.classList.remove('flash-active'), 400);
+
+        album.push({ step: currentStep, date: new Date() });
+        alert("📷 Foto guardada com sucesso no álbum da Manu!");
+        document.getElementById('camera-btn').style.display = 'none';
+    }
+
+    // Inicialização do Jogo
+    updateUI();
+    renderStep();
+</script>
+
+</body>
+</html>

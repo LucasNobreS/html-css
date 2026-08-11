@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Visual Novel - PA Infinito</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: #2c3e50;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #game-container {
+            width: 800px;
+            height: 600px;
+            background: #34495e;
+            position: relative;
+            border: 4px solid #fff;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            background-size: cover;
+            background-position: center;
+            transition: background-image 0.5s ease;
+        }
+
+        /* Top Bar - Status */
+        #status-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .pa-infinito {
+            color: #2ecc71;
+            animation: pulse 1.5s infinite;
+        }
+
+        /* Área do Personagem */
+        #character-sprite {
+            position: absolute;
+            bottom: 150px;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 350px;
+            transition: all 0.3s ease;
+        }
+
+        /* Caixa de Diálogo */
+        #dialogue-box {
+            background: rgba(255, 255, 255, 0.95);
+            border-top: 5px solid #e74c3c;
+            padding: 20px;
+            height: 160px;
+            position: relative;
+            z-index: 10;
+        }
+
+        #character-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #e74c3c;
+            margin-bottom: 8px;
+        }
+
+        #dialogue-text {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.4;
+        }
+
+        /* Botões de Escolha */
+        #choices-container {
+            position: absolute;
+            bottom: 180px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 20;
+        }
+
+        .choice-btn {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 25px;
+            font-size: 15px;
+            cursor: pointer;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            transition: background 0.2s, transform 0.1s;
+        }
+
+        .choice-btn:hover {
+            background: #c0392b;
+            transform: scale(1.02);
+        }
+
+        /* Avançar com clique na tela */
+        #click-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 5;
+            cursor: pointer;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.7; }
+            50% { opacity: 1; }
+            100% { opacity: 0.7; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="game-container">
+        <div id="click-overlay" onclick="game.next()"></div>
+
+        <div id="status-bar">
+            <div>PA: <span class="pa-infinito">∞ (INFINITO)</span></div>
+            <div>Loveômetro (Castiel): <span id="love-count">0</span>%</div>
+        </div>
+
+        <img id="character-sprite" src="" alt="" style="display: none;">
+
+        <div id="choices-container"></div>
+
+        <div id="dialogue-box">
+            <div id="character-name">Nome</div>
+            <div id="dialogue-text">Texto do diálogo...</div>
+        </div>
+    </div>
+
+    <script>
+        // Dados do Jogo (História, Escolhas e Imagens)
+        // Substitua os links do Unsplash pelas suas próprias imagens se quiser!
+        const story = {
+            start: {
+                bg: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=800", // Escola
+                sprite: "",
+                speaker: "Docete",
+                text: "Primeiro dia na escola nova... Espero não passar nenhuma vergonha.",
+                next: "meet_castiel"
+            },
+            meet_castiel: {
+                bg: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=800",
+                sprite: "https://api.dicebear.com/7.x/bottts/svg?seed=Castiel&backgroundColor=ff5555", // Avatar temporário (Estilo robô/anime simulado)
+                speaker: "Garoto Rebelde",
+                text: "Ei, você está parada no meio do corredor. Está perdida por acaso, novata?",
+                next: "choice_1"
+            },
+            choice_1: {
+                bg: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=800",
+                sprite: "https://api.dicebear.com/7.x/bottts/svg?seed=Castiel&backgroundColor=ff5555",
+                speaker: "Castiel",
+                text: "O que você vai dizer para ele?",
+                choices: [
+                    { text: "Desculpe, sou nova aqui. Você pode me ajudar?", target: "path_polite", love: -5 },
+                    { text: "E você está no meio do meu caminho. Dá licença?", target: "path_rebel", love: 15 },
+                    { text: "(Ficar vermelha e não conseguir falar nada)", target: "path_shy", love: 0 }
+                ]
+            },
+            // Caminho Educado
+            path_polite: {
+                bg: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=800",
+                sprite: "https://api.dicebear.com/7.x/bottts/svg?seed=Castiel&backgroundColor=ff5555",
+                speaker: "Castiel",
+                text: "Ajudar? Não sou guia turístico. Vá procurar o representante de classe.",
+                next: "end_demo"
+            },
+            // Caminho Rebelde (Ganha pontos com ele)
+            path_rebel: {
+                bg: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=800",
+                sprite: "https://api.dicebear.com/7.x/bottts/svg?seed=Castiel&backgroundColor=ff5555",
+                speaker: "Castiel",
+                text: "Haha, você tem personalidade. Gostei. Meu nome é Castiel. A gente se vê por aí.",
+                next: "end_demo"
+            },
+            // Caminho Tímido
+            path_shy: {
+                bg: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=800",
+                sprite: "https://api.dicebear.com/7.x/bottts/svg?seed=Castiel&backgroundColor=ff5555",
+                speaker: "Castiel",
+                text: "Que garota estranha... Enfim, preciso ir.",
+                next: "end_demo"
+            },
+            // Fim da demonstração
+            end_demo: {
+                bg: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=800", // Biblioteca
+                sprite: "",
+                speaker: "Sistema",
+                text: "Fim da demonstração! Você pode expandir a história adicionando mais blocos no código JavaScript.",
+                next: "start"
+            }
+        };
+
+        // Gerenciador do Jogo
+        class VisualNovel {
+            constructor(storyData) {
+                this.story = storyData;
+                this.currentNode = "start";
+                this.loveometer = 0;
+            }
+
+            init() {
+                this.render();
+            }
+
+            render() {
+                const node = this.story[this.currentNode];
+                
+                // Atualiza plano de fundo e textos
+                document.getElementById("game-container").style.backgroundImage = `url('${node.bg}')`;
+                document.getElementById("character-name").innerText = node.speaker;
+                document.getElementById("dialogue-text").innerText = node.text;
+                document.getElementById("love-count").innerText = this.loveometer;
+
+                // Atualiza o Sprite do Personagem
+                const spriteImg = document.getElementById("character-sprite");
+                if (node.sprite) {
+                    spriteImg.src = node.sprite;
+                    spriteImg.style.display = "block";
+                } else {
+                    spriteImg.style.display = "none";
+                }
+
+                // Limpa e renderiza escolhas se houverem
+                const choicesContainer = document.getElementById("choices-container");
+                choicesContainer.innerHTML = "";
+                
+                if (node.choices) {
+                    document.getElementById("click-overlay").style.pointerEvents = "none"; // Desativa clique na tela
+                    node.choices.forEach(choice => {
+                        const button = document.createElement("button");
+                        button.className = "choice-btn";
+                        button.innerText = choice.text;
+                        button.onclick = () => this.makeChoice(choice.target, choice.love);
+                        choicesContainer.appendChild(button);
+                    });
+                } else {
+                    document.getElementById("click-overlay").style.pointerEvents = "auto"; // Reativa clique
+                }
+            }
+
+            next() {
+                const node = this.story[this.currentNode];
+                if (node.next && !node.choices) {
+                    this.currentNode = node.next;
+                    this.render();
+                }
+            }
+
+            makeChoice(targetNode, lovePoints) {
+                this.loveometer += lovePoints;
+                // Garante que o loveômetro fique entre -100 e 100
+                this.loveometer = Math.max(-100, Math.min(100, this.loveometer));
+                
+                this.currentNode = targetNode;
+                this.render();
+            }
+        }
+
+        // Inicia o jogo ao carregar a página
+        const game = new VisualNovel(story);
+        game.init();
+    </script>
+</body>
+</html>
