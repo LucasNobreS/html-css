@@ -1,0 +1,611 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="index, follow">
+<meta name="googlebot" content="index, follow">
+<meta name="theme-color" content="#152238">
+<meta name="color-scheme" content="light">
+<meta name="format-detection" content="telephone=yes">
+<title>Solution — Software para operações reais</title>
+<meta name="description" content="A Solution desenvolve softwares que resolvem problemas operacionais reais das empresas, com tecnologia simples, eficiente e acessível.">
+<link rel="canonical" href="https://solution.com.br/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Solution">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Solution — Software para operações reais">
+<meta property="og:description" content="A Solution desenvolve softwares que resolvem problemas operacionais reais das empresas, com tecnologia simples, eficiente e acessível.">
+<meta property="og:url" content="https://solution.com.br/">
+<meta property="og:image" content="https://solution.com.br/icon-512.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Solution — Software para operações reais">
+<meta name="twitter:description" content="A Solution desenvolve softwares que resolvem problemas operacionais reais das empresas, com tecnologia simples, eficiente e acessível.">
+<meta name="twitter:image" content="https://solution.com.br/icon-512.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 22'%3E%3Crect width='22' height='22' rx='6' fill='%2321365E'/%3E%3Cpath d='M6 13.5c0 1.4 1.3 2.3 3 2.3s3-.8 3-2c0-3-6-1.4-6-4.4 0-1.3 1.3-2.1 3-2.1s3 .8 3 2' stroke='%23fff' stroke-width='1.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Solution",
+  "url": "https://solution.com.br/",
+  "logo": "https://solution.com.br/logo.png",
+  "telephone": "+5515981387169"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Solution",
+  "url": "https://solution.com.br/"
+}
+</script>
+
+<style>
+:root{
+  --bg:#F8FAFC;
+  --surface:#FFFFFF;
+  --ink:#0F172A;
+  --ink-soft:#64748B;
+  --line:#E4E9F0;
+  --line-soft:#EDF1F6;
+  --navy:#152238;
+  --accent:#2E4C8C;
+  --accent-strong:#21365E;
+  --accent-tint:#EEF2FC;
+  --accent-line:#C9D6F2;
+  --radius-s:6px;
+  --radius-m:10px;
+  --radius-l:16px;
+  --maxw:1180px;
+  --serif:"Source Serif 4", Georgia, serif;
+  --display:"Manrope", "Inter", sans-serif;
+  --body:"Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, monospace;
+}
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{animation-duration:0.001ms !important;animation-iteration-count:1 !important;transition-duration:0.001ms !important;}
+}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+h1,h2,h3,h4{
+  font-family:var(--display);
+  color:var(--ink);
+  margin:0;
+  font-weight:700;
+  letter-spacing:-0.02em;
+}
+p{margin:0;}
+ul{margin:0;padding:0;list-style:none;}
+button{font-family:inherit;cursor:pointer;}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px;}
+
+.skip-link{
+  position:absolute;left:12px;top:-60px;z-index:200;
+  background:var(--accent-strong);color:#fff;
+  padding:12px 18px;border-radius:8px;font-size:14px;font-weight:600;
+  transition:top .15s ease;
+}
+.skip-link:focus{top:12px;}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+.eyebrow{
+  font-family:var(--mono);
+  font-size:12.5px;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--accent);
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+}
+.eyebrow::before{content:"";width:14px;height:1px;background:var(--accent);display:inline-block;}
+
+/* ---------- header ---------- */
+.site-header{
+  position:sticky;top:0;z-index:80;
+  border-bottom:1px solid transparent;
+  transition:border-color .25s ease;
+}
+.site-header::before{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:rgba(248,250,252,0.86);
+  backdrop-filter:blur(10px);
+  transition:background .25s ease, box-shadow .25s ease;
+}
+.site-header.is-scrolled{border-bottom-color:var(--line);}
+.site-header.is-scrolled::before{background:rgba(248,250,252,0.96);box-shadow:0 1px 0 rgba(15,23,42,0.02);}
+.site-header .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;}
+.logo{font-family:var(--display);font-weight:800;font-size:18px;letter-spacing:-0.01em;display:flex;align-items:center;gap:9px;}
+.logo-mark{width:22px;height:22px;flex:none;}
+.logo-mark rect{fill:var(--accent-strong);}
+.logo-mark path{stroke:#fff;stroke-width:1.6;fill:none;stroke-linecap:round;}
+.main-nav{display:flex;align-items:center;gap:36px;}
+.main-nav ul{display:flex;gap:30px;}
+.main-nav a{font-size:14.5px;font-weight:500;color:var(--ink-soft);position:relative;padding:6px 0;transition:color .15s ease;}
+.main-nav a:hover{color:var(--ink);}
+.main-nav a[aria-current="page"]{color:var(--ink);}
+.main-nav a[aria-current="page"]::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--accent);border-radius:2px;}
+.header-cta{display:flex;align-items:center;gap:14px;}
+.menu-toggle{display:none;background:none;border:1px solid var(--line);border-radius:8px;width:40px;height:40px;align-items:center;justify-content:center;}
+.menu-toggle svg{width:18px;height:18px;}
+.header-cta .cta-mobile-only{display:none;}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  font-size:14.5px;font-weight:600;border-radius:999px;
+  padding:12px 22px;border:1px solid transparent;
+  transition:transform .15s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease, color .15s ease;
+  white-space:nowrap;
+}
+.btn-primary{background:var(--accent-strong);color:#fff;}
+.btn-primary:hover{background:var(--accent);box-shadow:0 8px 20px -8px rgba(33,54,94,0.55);}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line);}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent-strong);}
+.btn-sm{padding:9px 16px;font-size:13.5px;}
+.btn-wide{width:100%;}
+.form-status{font-size:13.5px;padding:10px 14px;border-radius:8px;border:1px solid transparent;}
+.form-status-loading{color:var(--ink-soft);background:var(--line-soft);border-color:var(--line);}
+.form-status-success{color:#166534;background:#F0FDF4;border-color:#BBF7D0;}
+.form-status-error{color:#B42318;background:#FEF3F2;border-color:#FECDCA;}
+
+/* ---------- layout helpers ---------- */
+section{padding:96px 0;}
+.section-tight{padding:64px 0;}
+.section-head{max-width:640px;margin-bottom:48px;}
+.section-head h2{font-size:clamp(28px,3.4vw,38px);line-height:1.15;margin-top:14px;}
+.section-head p{color:var(--ink-soft);font-size:16.5px;margin-top:14px;line-height:1.65;}
+.section-alt{background:var(--surface);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-l);padding:28px;transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;}
+.card:hover{transform:translateY(-3px);box-shadow:0 20px 40px -28px rgba(15,23,42,0.28);border-color:var(--accent-line);}
+
+.tag{display:inline-block;font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--accent-strong);background:var(--accent-tint);border:1px solid var(--accent-line);padding:4px 10px;border-radius:999px;}
+
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease, transform .6s ease;}
+.reveal.is-visible{opacity:1;transform:none;}
+
+/* ---------- hero signals strip (assinatura visual) ---------- */
+.signals{
+  border:1px solid var(--line);
+  border-radius:var(--radius-l);
+  background:var(--surface);
+  padding:20px 22px;
+  display:flex;
+  gap:0;
+  overflow:hidden;
+}
+.signal{flex:1;padding:0 20px;border-right:1px solid var(--line-soft);}
+.signal:last-child{border-right:none;}
+.signal-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
+.signal-label{font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft);}
+.signal-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);position:relative;}
+.signal-dot::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:1px solid var(--accent-line);animation:pulse 2.4s ease-in-out infinite;}
+@keyframes pulse{0%{transform:scale(.7);opacity:.9;}70%,100%{transform:scale(1.9);opacity:0;}}
+.signal-value{font-family:var(--display);font-size:22px;font-weight:800;color:var(--ink);}
+.signal-sub{font-size:12.5px;color:var(--ink-soft);margin-top:4px;}
+.signal svg{width:100%;height:28px;margin-top:10px;}
+.signal svg path{fill:none;stroke:var(--accent);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
+
+/* ---------- product screenshot frame (imagens reais dos produtos) ---------- */
+.shot-frame{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-l);overflow:hidden;}
+.shot-chrome{display:flex;gap:6px;padding:12px 16px;border-bottom:1px solid var(--line-soft);}
+.shot-dot{width:9px;height:9px;border-radius:50%;background:var(--line);display:inline-block;}
+.shot-frame picture{display:block;aspect-ratio:var(--ar-mobile,480/732);background:var(--bg);}
+.shot-frame img{width:100%;height:100%;object-fit:contain;display:block;}
+.shot-caption{padding:13px 16px;font-size:12px;color:var(--ink-soft);font-family:var(--mono);border-top:1px solid var(--line-soft);line-height:1.6;}
+@media (min-width:760px){ .shot-frame picture{aspect-ratio:var(--ar-desktop,1173/727);} }
+
+/* ---------- footer ---------- */
+.site-footer{background:var(--navy);color:#C7D0E0;padding:72px 0 28px;margin-top:0;}
+.footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr 1fr;gap:32px;padding-bottom:52px;border-bottom:1px solid rgba(255,255,255,0.09);}
+.site-footer .logo{color:#fff;}
+.site-footer .logo-mark rect{fill:#fff;}
+.site-footer .logo-mark path{stroke:var(--navy);}
+.footer-about p{color:#93A0BA;font-size:14.5px;line-height:1.7;margin-top:14px;max-width:280px;}
+.footer-col h4{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#7C88A3;font-weight:600;margin-bottom:16px;}
+.footer-col ul{display:flex;flex-direction:column;gap:11px;}
+.footer-col a{font-size:14.5px;color:#C7D0E0;transition:color .15s ease;}
+.footer-col a:hover{color:#fff;}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;font-size:13px;color:#7C88A3;flex-wrap:wrap;gap:12px;}
+.footer-bottom a{color:#93A0BA;}
+.footer-bottom a:hover{color:#fff;}
+
+/* ---------- whatsapp float ---------- */
+.wa-float{
+  position:fixed;right:22px;bottom:22px;z-index:90;
+  display:flex;align-items:center;gap:10px;
+  background:var(--accent-strong);color:#fff;border-radius:999px;
+  padding:12px 12px;box-shadow:0 14px 28px -10px rgba(21,34,56,0.45);
+  transition:padding .2s ease, box-shadow .2s ease, transform .2s ease;
+  font-size:13.5px;font-weight:600;
+}
+.wa-float:hover{transform:translateY(-2px);box-shadow:0 18px 34px -10px rgba(21,34,56,0.55);}
+.wa-float svg{width:20px;height:20px;flex:none;}
+.wa-float span{max-width:0;overflow:hidden;white-space:nowrap;opacity:0;transition:max-width .25s ease, opacity .2s ease;}
+.wa-float:hover span, .wa-float:focus-visible span{max-width:150px;opacity:1;margin-right:2px;}
+
+/* ---------- breadcrumb ---------- */
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-soft);margin-bottom:20px;flex-wrap:wrap;}
+.breadcrumb a{color:var(--ink-soft);}
+.breadcrumb a:hover{color:var(--accent-strong);}
+.breadcrumb span{color:var(--line);}
+
+/* ---------- responsive ---------- */
+@media (max-width:920px){
+  .grid-3{grid-template-columns:1fr 1fr;}
+  .grid-4{grid-template-columns:1fr 1fr;}
+  .footer-top{grid-template-columns:1fr 1fr;row-gap:36px;}
+}
+@media (max-width:760px){
+  .btn{min-height:44px;}
+  .btn-sm{padding:11px 18px;}
+  .main-nav{position:fixed;inset:72px 0 0 0;background:var(--bg);flex-direction:column;align-items:stretch;padding:28px 24px;gap:24px;transform:translateY(-8px);opacity:0;pointer-events:none;transition:opacity .2s ease, transform .2s ease;overflow:auto;}
+  .main-nav.is-open{opacity:1;transform:none;pointer-events:auto;}
+  .main-nav ul{flex-direction:column;gap:4px;}
+  .main-nav a{display:block;padding:14px 4px;font-size:16px;border-bottom:1px solid var(--line-soft);}
+  .header-cta .cta-desktop-only{display:none;}
+  .header-cta .cta-mobile-only{display:inline-flex;width:100%;justify-content:center;margin-top:8px;}
+  .menu-toggle{display:flex;width:44px;height:44px;}
+  section{padding:64px 0;}
+  .grid-2,.grid-3,.grid-4{grid-template-columns:1fr;}
+  .signals{flex-direction:column;}
+  .signal{border-right:none;border-bottom:1px solid var(--line-soft);padding:14px 0;}
+  .signal:last-child{border-bottom:none;}
+  .footer-top{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body class="">
+<a class="skip-link" href="#main-content">Pular para o conteúdo</a>
+
+<header class="site-header" id="siteHeader">
+  <div class="wrap">
+    <a href="index.html" class="logo" aria-label="Solution — início">
+      <svg class="logo-mark" viewBox="0 0 22 22"><rect width="22" height="22" rx="6"/><path d="M6 13.5c0 1.4 1.3 2.3 3 2.3s3-.8 3-2c0-3-6-1.4-6-4.4 0-1.3 1.3-2.1 3-2.1s3 .8 3 2"/></svg>
+      SOLUTION
+    </a>
+    <nav class="main-nav" id="mainNav" aria-label="Navegação principal">
+      <ul><a href="products/">Produtos</a><a href="about/">Sobre</a><a href="blog/">Blog</a><a href="faq/">FAQ</a></ul>
+      <div class="header-cta" style="display:flex;gap:10px;">
+        <a href="contact/" class="btn btn-primary btn-sm cta-mobile-only">Falar com a Solution</a>
+      </div>
+    </nav>
+    <div class="header-cta">
+      <a href="contact/" class="btn btn-primary btn-sm cta-desktop-only">Falar com a Solution</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mainNav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main-content">
+
+<section style="padding-top:76px;padding-bottom:64px;">
+  <div class="wrap">
+    <div class="grid-2" style="align-items:center;gap:56px;">
+      <div class="reveal">
+        <span class="eyebrow">Software para operações reais</span>
+        <h1 style="font-size:clamp(34px,4.6vw,54px);line-height:1.08;margin-top:18px;">
+          Sistemas que resolvem o trabalho que trava sua empresa todos os dias.
+        </h1>
+        <p style="color:var(--ink-soft);font-size:18px;line-height:1.7;margin-top:22px;max-width:520px;">
+          A Solution desenvolve softwares focados em problemas operacionais específicos —
+          não plataformas genéricas. Cada produto nasce de um processo real que precisava
+          parar de depender de planilha, papel ou memória.
+        </p>
+        <div style="display:flex;gap:14px;margin-top:32px;flex-wrap:wrap;">
+          <a href="products/" class="btn btn-primary">Conheça nossas soluções</a>
+          <a href="contact/" class="btn btn-ghost">Falar com a Solution</a>
+        </div>
+      </div>
+      <div class="reveal" style="transition-delay:.1s;">
+        <div class="signals">
+          <div class="signal">
+            <div class="signal-top"><span class="signal-label">AgendaHub</span><span class="signal-dot"></span></div>
+            <div class="signal-value">Comissões</div>
+            <div class="signal-sub">Atendimento → financeiro, automático</div>
+            <svg viewBox="0 0 120 28" preserveAspectRatio="none"><path d="M0 20 L15 17 L30 21 L45 10 L60 14 L75 6 L90 11 L105 4 L120 8"/></svg>
+          </div>
+          <div class="signal">
+            <div class="signal-top"><span class="signal-label">FestaCore</span><span class="signal-dot"></span></div>
+            <div class="signal-value">Estoque</div>
+            <div class="signal-sub">Reserva por festas confirmadas</div>
+            <svg viewBox="0 0 120 28" preserveAspectRatio="none"><path d="M0 12 L15 12 L15 22 L35 22 L35 8 L55 8 L55 18 L75 18 L75 6 L95 6 L95 16 L120 16"/></svg>
+          </div>
+        </div>
+        <p style="font-size:12.5px;color:var(--ink-soft);margin-top:12px;font-family:var(--mono);">
+          Indicadores ilustrativos — cada produto exibe seus próprios dados reais dentro do sistema.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-alt" id="solucoes">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Nossas soluções</span>
+      <h2>Software pensado para problemas reais.</h2>
+      <p>A Solution não é uma plataforma única tentando resolver tudo. São produtos
+      especializados, cada um construído em torno de um processo específico da sua operação.</p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card reveal">
+        <span class="tag">AgendaHub</span>
+        <h3 style="font-size:22px;margin-top:16px;">Gestão para negócios com múltiplos profissionais.</h3>
+        <p style="color:var(--ink-soft);margin-top:12px;line-height:1.65;">
+          Agenda, atendimentos, comissões, repasses e financeiro conectados —
+          feito para salões, barbearias, clínicas e estúdios que trabalham com
+          profissionais comissionados.
+        </p>
+        <p style="color:var(--ink-soft);margin-top:10px;line-height:1.65;font-size:14.5px;">
+          <strong style="color:var(--ink);">Benefício principal:</strong> cada atendimento concluído já nasce como informação financeira — sem cálculo manual de comissão.
+        </p>
+        <a href="products/agendahub/" class="btn btn-ghost btn-sm" style="margin-top:20px;">Conhecer o AgendaHub →</a>
+      </div>
+      <div class="card reveal" style="transition-delay:.08s;">
+        <span class="tag">FestaCore</span>
+        <h3 style="font-size:22px;margin-top:16px;">Gestão para salões de festas.</h3>
+        <p style="color:var(--ink-soft);margin-top:12px;line-height:1.65;">
+          Organize eventos, clientes, pacotes, extras, estoque e financeiro em um
+          único sistema — feito para salões de festas e negócios que trabalham
+          com eventos.
+        </p>
+        <p style="color:var(--ink-soft);margin-top:10px;line-height:1.65;font-size:14.5px;">
+          <strong style="color:var(--ink);">Benefício principal:</strong> saiba com antecedência quando o estoque não será suficiente para as próximas festas confirmadas.
+        </p>
+        <a href="products/festacore/" class="btn btn-ghost btn-sm" style="margin-top:20px;">Conhecer o FestaCore →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Por que Solution</span>
+      <h2>Princípios que guiam cada produto que construímos.</h2>
+    </div>
+    <div class="grid-4">
+      <div class="reveal">
+        <h3 style="font-size:17px;">Simplicidade antes de tudo</h3>
+        <p style="color:var(--ink-soft);font-size:14.5px;margin-top:10px;line-height:1.6;">Um sistema só ajuda se for mais rápido que o método antigo. É a régua de cada decisão de produto.</p>
+      </div>
+      <div class="reveal" style="transition-delay:.05s;">
+        <h3 style="font-size:17px;">Foco no problema, não na moda</h3>
+        <p style="color:var(--ink-soft);font-size:14.5px;margin-top:10px;line-height:1.6;">Cada funcionalidade existe porque resolve algo concreto na operação — não porque é tendência.</p>
+      </div>
+      <div class="reveal" style="transition-delay:.1s;">
+        <h3 style="font-size:17px;">Melhoria contínua</h3>
+        <p style="color:var(--ink-soft);font-size:14.5px;margin-top:10px;line-height:1.6;">Os produtos evoluem a partir do uso real, com atualizações orientadas pelo que os clientes enfrentam.</p>
+      </div>
+      <div class="reveal" style="transition-delay:.15s;">
+        <h3 style="font-size:17px;">Suporte de verdade</h3>
+        <p style="color:var(--ink-soft);font-size:14.5px;margin-top:10px;line-height:1.6;">Contato direto, sem central de atendimento automatizada como única porta de entrada.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Como funciona</span>
+      <h2>Da escolha do produto ao uso diário.</h2>
+    </div>
+    <div class="grid-4">
+      <div class="reveal">
+        <div style="font-family:var(--mono);color:var(--accent);font-size:13px;">01</div>
+        <h3 style="font-size:16.5px;margin-top:10px;">Escolha a solução</h3>
+        <p style="color:var(--ink-soft);font-size:14.5px;margin-top:8px;line-height:1.6;">Identifique qual produto se encaixa no processo que você quer resolver.</p>
+      </div>
+      <div class="reveal" style="transition-delay:.05s;">
+        <div style="font-family:var(--mono);color:var(--accent);font-size:13px;">02</div>
+        <h3 style="font-size:16.5px;margin-top:10px;">Configure seu ambiente</h3>
+        <p style="color:var(--ink-soft);font-size:14.5px;margin-top:8px;line-height:1.6;">Nossa equipe ajuda a preparar o sistema de acordo com sua operação.</p>
+      </div>
+      <div class="reveal" style="transition-delay:.1s;">
+        <div style="font-family:var(--mono);color:var(--accent);font-size:13px;">03</div>
+        <h3 style="font-size:16.5px;margin-top:10px;">Comece a utilizar</h3>
+        <p style="color:var(--ink-soft);font-size:14.5px;margin-top:8px;line-height:1.6;">Sua equipe passa a operar dentro do sistema, sem curva de aprendizado longa.</p>
+      </div>
+      <div class="reveal" style="transition-delay:.15s;">
+        <div style="font-family:var(--mono);color:var(--accent);font-size:13px;">04</div>
+        <h3 style="font-size:16.5px;margin-top:10px;">Tenha mais controle</h3>
+        <p style="color:var(--ink-soft);font-size:14.5px;margin-top:8px;line-height:1.6;">Dados organizados e visíveis, prontos para decisões melhores.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="card reveal" style="padding:0;overflow:hidden;border-radius:var(--radius-l);">
+      <div style="padding:40px;background:var(--accent-tint);border:1px solid var(--accent-line);border-radius:var(--radius-l);">
+        <span class="eyebrow">Em construção</span>
+        <h3 style="font-size:20px;margin-top:12px;">Espaço reservado para prova social</h3>
+        <p style="color:var(--ink-soft);margin-top:10px;line-height:1.65;max-width:560px;">
+          À medida que a Solution acumula clientes, esta área vai apresentar números,
+          depoimentos e casos reais de uso. Preferimos deixar o espaço preparado a
+          publicar dados fictícios.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="wrap" style="text-align:center;">
+    <h2 style="font-size:clamp(26px,3.2vw,34px);" class="reveal">Pronto para simplificar sua operação?</h2>
+    <p style="color:var(--ink-soft);margin-top:14px;max-width:480px;margin-left:auto;margin-right:auto;" class="reveal">
+      Fale com a Solution e descubra qual produto se encaixa na sua rotina.
+    </p>
+    <div style="display:flex;gap:14px;justify-content:center;margin-top:26px;flex-wrap:wrap;" class="reveal">
+      <a href="products/" class="btn btn-primary">Conheça nossas soluções</a>
+      <a href="contact/" class="btn btn-ghost">Falar com a Solution</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-about">
+        <a href="index.html" class="logo">
+          <svg class="logo-mark" viewBox="0 0 22 22"><rect width="22" height="22" rx="6"/><path d="M6 13.5c0 1.4 1.3 2.3 3 2.3s3-.8 3-2c0-3-6-1.4-6-4.4 0-1.3 1.3-2.1 3-2.1s3 .8 3 2"/></svg>
+          SOLUTION
+        </a>
+        <p>Desenvolvemos software para empresas que precisam resolver problemas operacionais reais — com tecnologia simples, direta e feita para ser usada todos os dias.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Produtos</h4>
+        <ul>
+          <li><a href="products/agendahub/">AgendaHub</a></li>
+          <li><a href="products/festacore/">FestaCore</a></li>
+          <li><a href="products/">Ver todos</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="about/">Sobre</a></li>
+          <li><a href="blog/">Blog</a></li>
+          <li><a href="faq/">FAQ</a></li>
+          <li><a href="contact/">Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="terms/">Termos de uso</a></li>
+          <li><a href="privacy/">Privacidade</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="https://wa.me/5515981387169" target="_blank" rel="noopener">(15) 98138-7169</a></li>
+          <li><a href="contact/">Formulário de contato</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="year"></span> Solution. Todos os direitos reservados.</p>
+      <p><a href="terms/">Termos</a> &nbsp;·&nbsp; <a href="privacy/">Privacidade</a></p>
+    </div>
+  </div>
+</footer>
+
+
+<a class="wa-float" href="https://wa.me/5515981387169?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Solution" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.87.5 3.63 1.44 5.15L2 22l5.1-1.53a9.86 9.86 0 0 0 4.94 1.33h.01c5.46 0 9.9-4.45 9.9-9.9C21.95 6.45 17.5 2 12.04 2Zm0 18.06h-.01a8.14 8.14 0 0 1-4.15-1.14l-.3-.18-3.03.9.91-2.95-.2-.31a8.14 8.14 0 0 1-1.25-4.35c0-4.5 3.67-8.16 8.18-8.16 4.5 0 8.16 3.66 8.16 8.16 0 4.51-3.66 8.03-8.31 8.03Zm4.48-6.1c-.24-.12-1.44-.71-1.67-.79-.22-.08-.38-.12-.55.12-.16.24-.63.79-.77.95-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.93-1.2-.71-.63-1.19-1.4-1.33-1.64-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.32-.75-1.8-.2-.48-.4-.42-.55-.42-.14 0-.3-.02-.46-.02-.16 0-.42.06-.64.3-.22.24-.85.83-.85 2.02 0 1.19.87 2.34.99 2.5.12.16 1.72 2.62 4.16 3.68.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.44-.59 1.64-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28Z"/></svg>
+  <span>WhatsApp</span>
+</a>
+
+<script>
+document.getElementById('year') && (document.getElementById('year').textContent = new Date().getFullYear());
+const header = document.getElementById('siteHeader');
+const onScroll = () => { if(header){ header.classList.toggle('is-scrolled', window.scrollY > 8); } };
+onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+
+const toggle = document.getElementById('menuToggle');
+const nav = document.getElementById('mainNav');
+if(toggle && nav){
+  toggle.addEventListener('click', () => {
+    const open = nav.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    nav.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded','false');
+  }));
+}
+
+if ('IntersectionObserver' in window) {
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target); } });
+  }, {threshold:0.15});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+} else {
+  document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
+}
+
+document.querySelectorAll('[data-accordion] button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('[data-accordion-item]');
+    const wasOpen = item.classList.contains('is-open');
+    item.parentElement.querySelectorAll('[data-accordion-item]').forEach(i => { i.classList.remove('is-open'); i.querySelector('button').setAttribute('aria-expanded','false'); });
+    if(!wasOpen){ item.classList.add('is-open'); btn.setAttribute('aria-expanded','true'); }
+  });
+});
+
+const cform = document.getElementById('contactForm');
+if(cform){
+  const WHATSAPP_NUMBER = '5515981387169';
+
+  cform.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const status = document.getElementById('formStatus');
+    const formData = new FormData(cform);
+    const data = Object.fromEntries(formData.entries());
+
+    if (!data.name || !data.email || !data.message || data.message.trim().length < 10) {
+      status.hidden = false;
+      status.className = 'form-status form-status-error';
+      status.textContent = 'Preencha nome, e-mail e uma mensagem com pelo menos 10 caracteres.';
+      return;
+    }
+
+    const lines = [
+      'Olá! Vim pelo site da Solution.',
+      '',
+      `Nome: ${data.name}`,
+      `E-mail: ${data.email}`,
+      data.phone ? `Telefone: ${data.phone}` : null,
+      `Assunto: ${data.subject || 'Outro assunto'}`,
+      '',
+      'Mensagem:',
+      data.message,
+    ].filter(Boolean).join('\n');
+
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines)}`;
+
+    status.hidden = false;
+    status.className = 'form-status form-status-success';
+    status.textContent = 'Abrindo o WhatsApp com sua mensagem pronta...';
+
+    window.open(url, '_blank', 'noopener');
+    cform.reset();
+  });
+}
+</script>
+</body>
+</html>
