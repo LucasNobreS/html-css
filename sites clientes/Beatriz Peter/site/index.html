@@ -11,12 +11,12 @@
 <meta name="color-scheme" content="light">
 
 <!-- Favicons -->
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png">
-<link rel="icon" type="image/png" sizes="48x48" href="/assets/icons/favicon-48.png">
-<link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
-<link rel="manifest" href="/site.webmanifest">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="assets/icons/favicon-48.png">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
@@ -24,19 +24,19 @@
 <meta property="og:title" content="Beatriz Peter | Advogada em Direito Digital">
 <meta property="og:description" content="Orientação jurídica para proteger sua privacidade, seus dados e sua presença no ambiente digital.">
 <meta property="og:url" content="https://advbeatrizpeter.com.br/">
-<meta property="og:image" content="https://advbeatrizpeter.com.br/assets/icons/icon-512.png">
+<meta property="og:image" content="https://advbeatrizpeter.com.brassets/icons/icon-512.png">
 <meta property="og:locale" content="pt_BR">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Beatriz Peter | Advogada em Direito Digital">
 <meta name="twitter:description" content="Orientação jurídica para proteger sua privacidade, seus dados e sua presença no ambiente digital.">
-<meta name="twitter:image" content="https://advbeatrizpeter.com.br/assets/icons/icon-512.png">
+<meta name="twitter:image" content="https://advbeatrizpeter.com.brassets/icons/icon-512.png">
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="image" href="/assets/img/beatriz-peter-advogada-direito-digital-notebook-854.webp" fetchpriority="high">
+<link rel="preload" as="image" href="assets/img/beatriz-peter-advogada-direito-digital-notebook-854.webp" fetchpriority="high">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <!-- JSON-LD: Person / Attorney -->
@@ -47,7 +47,7 @@
   "name": "Beatriz Peter",
   "jobTitle": "Advogada",
   "url": "https://advbeatrizpeter.com.br/",
-  "image": "https://advbeatrizpeter.com.br/assets/img/beatriz-peter-advogada-retrato-profissional-854.webp",
+  "image": "https://advbeatrizpeter.com.brassets/img/beatriz-peter-advogada-retrato-profissional-854.webp",
   "description": "Advogada com atuação em Direito Digital, oferecendo orientação jurídica sobre privacidade, proteção de dados e questões do ambiente digital.",
   "telephone": "+5515981248650",
   "knowsAbout": ["Direito Digital", "Proteção de Dados", "Privacidade Digital"],
@@ -76,6 +76,8 @@
     --color-gold-light: #D5C2A2;
     --color-gold: #CEA67C;
     --color-bronze: #8E6D4C;
+    --color-whatsapp: #25D366;
+    --color-whatsapp-dark: #1DA851;
 
     --font-display: 'Fraunces', 'Iowan Old Style', Georgia, serif;
     --font-body: 'Work Sans', -apple-system, 'Segoe UI', sans-serif;
@@ -112,7 +114,13 @@
     text-rendering: optimizeLegibility;
   }
 
-  img{ max-width: 100%; display: block; }
+  img{ max-width: 100%; display: block; min-width: 0; }
+
+  /* Grid children default to min-width:auto, which lets a large <img>'s
+     intrinsic size blow out its track and squeeze the sibling column.
+     Forcing min-width:0 on direct children of every 2-col grid fixes that. */
+  .hero__grid > *, .about__grid > *, .contact__grid > *,
+  .footer__grid > *, .explainer > *, .situation > * { min-width: 0; }
   a{ color: inherit; }
   h1,h2,h3,h4{ font-family: var(--font-display); font-weight: 500; line-height: 1.12; margin: 0; color: var(--color-primary); }
   p{ margin: 0; }
@@ -167,12 +175,12 @@
 
   .header-cta{
     display: none; align-items: center; gap: 0.5rem;
-    font-size: 0.85rem; text-decoration: none; color: var(--color-primary);
-    border: 1px solid var(--color-primary); padding: 0.55rem 1.1rem;
+    font-size: 0.85rem; text-decoration: none; color: var(--color-whatsapp-dark);
+    border: 1px solid var(--color-whatsapp); padding: 0.55rem 1.1rem;
     border-radius: var(--radius-sm); transition: background var(--transition), color var(--transition);
     white-space: nowrap;
   }
-  .header-cta:hover, .header-cta:focus-visible{ background: var(--color-primary); color: #fff; }
+  .header-cta:hover, .header-cta:focus-visible{ background: var(--color-whatsapp); color: #fff; }
 
   .menu-toggle{
     background: none; border: 1px solid var(--color-primary);
@@ -251,6 +259,17 @@
   .kicker{ font-size: 0.85rem; color: var(--color-bronze); margin-bottom: var(--space-1); }
   .section-dark .kicker{ color: var(--color-gold-light); }
 
+  /* Scroll charm: section headings ease up into view once, on first scroll past them. */
+  .section-head{
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 700ms cubic-bezier(.4,0,.2,1), transform 700ms cubic-bezier(.4,0,.2,1);
+  }
+  .section-head.is-visible{ opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce){
+    .section-head{ opacity: 1; transform: none; transition: none; }
+  }
+
   h2{ font-size: clamp(1.6rem, 3vw, 2.15rem); }
 
   /* ---------- Positioning ---------- */
@@ -303,16 +322,20 @@
   .process{ counter-reset: step; border-top: 1px solid rgba(255,255,255,0.2); }
   .process li{
     counter-increment: step;
-    display: grid; grid-template-columns: 2.4rem 1fr; gap: var(--space-3);
+    display: grid;
+    grid-template-columns: 2.4rem minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    column-gap: var(--space-3);
     padding-block: var(--space-3);
     border-bottom: 1px solid rgba(255,255,255,0.2);
   }
   .process li::before{
     content: counter(step, decimal-leading-zero);
+    grid-column: 1; grid-row: 1 / -1;
     font-family: var(--font-display); font-size: 1rem; color: var(--color-gold-light);
   }
-  .process h3{ font-size: 1.08rem; font-weight: 500; color: #fff; }
-  .process p{ opacity: 0.82; margin-top: 0.25rem; max-width: 56ch; }
+  .process h3{ grid-column: 2; font-size: 1.08rem; font-weight: 500; color: #fff; min-width: 0; }
+  .process p{ grid-column: 2; opacity: 0.82; margin-top: 0.25rem; max-width: 56ch; min-width: 0; }
 
   /* ---------- Conteúdos ---------- */
   .contents-note{
@@ -367,12 +390,12 @@
   /* ---------- WhatsApp floating action (discreet) ---------- */
   .wa-float{
     position: fixed; right: var(--space-2); bottom: var(--space-2); z-index: 90;
-    background: var(--color-primary); color: #fff; width: 52px; height: 52px;
+    background: var(--color-whatsapp); color: #fff; width: 52px; height: 52px;
     border-radius: 50%; display: flex; align-items: center; justify-content: center;
     text-decoration: none; box-shadow: 0 6px 18px rgba(28,43,58,0.25);
     transition: transform var(--transition), background var(--transition);
   }
-  .wa-float:hover, .wa-float:focus-visible{ background: var(--color-primary-dark); transform: translateY(-2px); }
+  .wa-float:hover, .wa-float:focus-visible{ background: var(--color-whatsapp-dark); transform: translateY(-2px); }
   .wa-float svg{ width: 24px; height: 24px; fill: #fff; }
 </style>
 </head>
@@ -382,7 +405,7 @@
 <header class="site-header">
   <div class="container site-header__inner">
     <a class="brand" href="#topo" aria-label="Beatriz Peter, Advogada — página inicial">
-      <img src="assets/icons/logo-header.jpg" alt="Beatriz Peter, Advogada" width="815" height="390" style="height:44px;width:auto;">
+      <img src="assets/icons/Símbolo (6).png" alt="Beatriz Peter, Advogada" width="815" height="390" style="height:44px;width:auto;">
     </a>
 
     <nav class="primary-nav" aria-label="Navegação principal">
@@ -390,7 +413,7 @@
         <li><a href="#topo">Início</a></li>
         <li><a href="#sobre">Sobre</a></li>
         <li><a href="#atuacao">Atuação</a></li>
-        <li><a href="#conteudos">Conteúdos</a></li>
+        <li><a href="#confidencialidade">Confidencialidade</a></li>
         <li><a href="#contato">Contato</a></li>
       </ul>
     </nav>
@@ -409,7 +432,7 @@
       <li><a href="#topo">Início</a></li>
       <li><a href="#sobre">Sobre</a></li>
       <li><a href="#atuacao">Atuação</a></li>
-      <li><a href="#conteudos">Conteúdos</a></li>
+      <li><a href="#confidencialidade">Confidencialidade</a></li>
       <li><a href="#contato">Contato</a></li>
       <li>
         <a class="header-cta" href="https://wa.me/5515981248650?text=Ol%C3%A1%2C%20Beatriz.%20Acessei%20seu%20site%20e%20gostaria%20de%20obter%20informa%C3%A7%C3%B5es%20sobre%20sua%20atua%C3%A7%C3%A3o%20em%20Direito%20Digital." target="_blank" rel="noopener">
@@ -442,7 +465,10 @@
         <div class="hero__media">
           <img
             src="assets/img/beatriz-peter-advogada-direito-digital-notebook-854.webp"
-            sizes="(min-width: 900px) 40vw, 90vw"
+            srcset="assets/img/beatriz-peter-advogada-direito-digital-notebook-480.webp 480w,
+                    assets/img/beatriz-peter-advogada-direito-digital-notebook-768.webp 768w,
+                    assets/img/beatriz-peter-advogada-direito-digital-notebook-854.webp 854w"
+
             alt="Beatriz Peter, advogada, trabalhando em seu notebook."
             width="854" height="1280"
             fetchpriority="high"
@@ -539,6 +565,9 @@
       <div class="about__media">
         <img
           src="assets/img/beatriz-peter-advogada-retrato-profissional-854.webp"
+          srcset="assets/img/beatriz-peter-advogada-retrato-profissional-480.webp 480w,
+                  assets/img/beatriz-peter-advogada-retrato-profissional-768.webp 768w,
+                  assets/img/beatriz-peter-advogada-retrato-profissional-854.webp 854w"
           sizes="(min-width: 900px) 32vw, 90vw"
           alt="Beatriz Peter, advogada, em retrato profissional."
 
@@ -594,22 +623,23 @@
     </div>
   </section>
 
-  <!-- CONTEÚDOS -->
-  <section id="conteudos" class="section-soft" aria-labelledby="conteudos-titulo">
+  <!-- CONFIDENCIALIDADE -->
+  <section id="confidencialidade" class="section-soft" aria-labelledby="confidencialidade-titulo">
     <div class="container">
       <div class="section-head">
-        <p class="kicker">Conteúdos</p>
-        <h2 id="conteudos-titulo">Material sobre Direito Digital</h2>
+        <p class="kicker">Confidencialidade</p>
+        <h2 id="confidencialidade-titulo">O que você compartilha permanece protegido</h2>
       </div>
       <div class="contents-note">
         <p>
-          Em breve, este espaço reunirá conteúdos escritos por Beatriz Peter sobre temas de
-          Direito Digital, privacidade e proteção de dados — sempre com linguagem acessível e
-          baseados em situações reais e relevantes para quem navega esse universo.
+          Tudo o que é tratado em uma conversa com Beatriz está protegido pelo sigilo profissional
+          da advocacia, garantido pela legislação e pelo Código de Ética e Disciplina da OAB. Isso
+          significa que você pode expor sua situação com a franqueza necessária para que a
+          orientação recebida seja, de fato, útil.
         </p>
         <p>
-          Se você tem uma dúvida específica antes que os conteúdos estejam disponíveis, o caminho
-          mais rápido é <a href="https://wa.me/5515981248650?text=Ol%C3%A1%2C%20Beatriz.%20Tenho%20uma%20d%C3%BAvida%20sobre%20Direito%20Digital%20e%20gostaria%20de%20conversar." target="_blank" rel="noopener" style="color:var(--color-primary); border-bottom:1px solid var(--color-gold); text-decoration:none;">falar diretamente com Beatriz</a>.
+          Esse cuidado vale tanto para o conteúdo da conversa quanto para os dados pessoais
+          envolvidos nela — tratados com a atenção que qualquer questão do ambiente digital exige.
         </p>
       </div>
     </div>
@@ -659,16 +689,16 @@
             Falar com Beatriz pelo WhatsApp
           </a>
         </div>
-        <p class="contact__phone">+55 15 98124-8650</p>
+        <p class="contact__phone"></p>
       </div>
       <div class="contact__media">
         <img
-          src="/assets/img/beatriz-peter-advogada-ambiente-profissional-720.webp"
-          srcset="/assets/img/beatriz-peter-advogada-ambiente-profissional-480.webp 480w,
-                  /assets/img/beatriz-peter-advogada-ambiente-profissional-720.webp 720w"
+          src="assets/img/beatriz-peter-advogada-ambiente-profissional-720.webp"
+          srcset="assets/img/beatriz-peter-advogada-ambiente-profissional-480.webp 480w,
+                  assets/img/beatriz-peter-advogada-ambiente-profissional-720.webp 720w"
           sizes="(min-width: 900px) 40vw, 90vw"
           alt="Beatriz Peter, advogada, em seu ambiente profissional."
-          width="720" height="1280"
+
           loading="lazy"
         >
       </div>
@@ -681,7 +711,7 @@
   <div class="container">
     <div class="footer__grid">
       <div class="footer__brand">
-        <img src="/assets/icons/logo-footer.jpg" alt="Beatriz Peter, Advogada" width="815" height="390" style="height:40px;width:auto;">
+        <img src="assets/icons/Símbolo (7).png" alt="Beatriz Peter, Advogada" width="815" height="390" style="height:40px;width:auto;">
         <p>Advogada com atuação em Direito Digital, com orientação clara sobre privacidade, dados e o ambiente digital.</p>
       </div>
       <div class="footer__col">
@@ -690,7 +720,7 @@
           <li><a href="#topo">Início</a></li>
           <li><a href="#sobre">Sobre</a></li>
           <li><a href="#atuacao">Atuação</a></li>
-          <li><a href="#conteudos">Conteúdos</a></li>
+          <li><a href="#confidencialidade">Confidencialidade</a></li>
           <li><a href="#contato">Contato</a></li>
         </ul>
       </div>
@@ -698,8 +728,8 @@
         <h4>Contato</h4>
         <ul>
           <li><a href="https://wa.me/5515981248650" target="_blank" rel="noopener">WhatsApp: +55 15 98124-8650</a></li>
-          <li><a href="/politica-de-privacidade.html">Política de Privacidade</a></li>
-          <li><a href="/termos-de-uso.html">Termos de Uso</a></li>
+          <li><a href="politica-de-privacidade.html">Política de Privacidade</a></li>
+          <li><a href="termos-de-uso.html">Termos de Uso</a></li>
         </ul>
       </div>
     </div>
@@ -731,6 +761,24 @@
     });
     var y = document.getElementById('anoAtual');
     if(y) y.textContent = new Date().getFullYear();
+
+    // Scroll charm: reveal each section heading once as it enters view.
+    var reveals = document.querySelectorAll('.section-head');
+    if(reveals.length){
+      if('IntersectionObserver' in window){
+        var io = new IntersectionObserver(function(entries){
+          entries.forEach(function(entry){
+            if(entry.isIntersecting){
+              entry.target.classList.add('is-visible');
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+        reveals.forEach(function(el){ io.observe(el); });
+      } else {
+        reveals.forEach(function(el){ el.classList.add('is-visible'); });
+      }
+    }
   })();
 </script>
 </body>
