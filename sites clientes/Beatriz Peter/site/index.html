@@ -49,7 +49,8 @@
   "url": "https://advbeatrizpeter.com.br/",
   "image": "https://advbeatrizpeter.com.brassets/img/beatriz-peter-advogada-retrato-profissional-854.webp",
   "description": "Advogada com atuação em Direito Digital, oferecendo orientação jurídica sobre privacidade, proteção de dados e questões do ambiente digital.",
-  "telephone": "+5515981248650",
+  "telephone": "+5515991494097",
+  "sameAs": ["https://www.instagram.com/adv.beatrizpeter/"],
   "knowsAbout": ["Direito Digital", "Proteção de Dados", "Privacidade Digital"],
   "areaServed": "BR"
 }
@@ -120,7 +121,7 @@
      intrinsic size blow out its track and squeeze the sibling column.
      Forcing min-width:0 on direct children of every 2-col grid fixes that. */
   .hero__grid > *, .about__grid > *, .contact__grid > *,
-  .footer__grid > *, .explainer > *, .situation > * { min-width: 0; }
+  .footer__grid > *, .explainer > * { min-width: 0; }
   a{ color: inherit; }
   h1,h2,h3,h4{ font-family: var(--font-display); font-weight: 500; line-height: 1.12; margin: 0; color: var(--color-primary); }
   p{ margin: 0; }
@@ -227,8 +228,8 @@
     border-radius: var(--radius-sm); transition: background var(--transition), color var(--transition), border-color var(--transition);
     border: 1px solid transparent;
   }
-  .btn--primary{ background: var(--color-primary); color: #fff; }
-  .btn--primary:hover, .btn--primary:focus-visible{ background: var(--color-primary-dark); }
+  .btn--primary{ background: var(--color-whatsapp); color: #fff; }
+  .btn--primary:hover, .btn--primary:focus-visible{ background: var(--color-whatsapp-dark); }
   .btn--ghost{ border-color: var(--color-primary); color: var(--color-primary); }
   .btn--ghost:hover, .btn--ghost:focus-visible{ background: var(--color-primary); color: #fff; }
 
@@ -268,32 +269,70 @@
   .section-head.is-visible{ opacity: 1; transform: none; }
   @media (prefers-reduced-motion: reduce){
     .section-head{ opacity: 1; transform: none; transition: none; }
+    .about__media img, .contact__media img{ opacity: 1; transform: none; transition: none; }
   }
 
   h2{ font-size: clamp(1.6rem, 3vw, 2.15rem); }
 
   /* ---------- Positioning ---------- */
-  .situations{
-    display: grid; gap: 0;
-    border-top: 1px solid rgba(38,72,109,0.14);
+  /* ---------- Areas of practice: photo background + card grid ---------- */
+  .areas__visual{
+    position: relative;
+    margin-top: var(--space-5);
+    padding-block: var(--space-5);
+    overflow: hidden;
+    isolation: isolate;
   }
-  .situation{
-    display: grid; gap: var(--space-1);
-    padding-block: var(--space-3);
-    border-bottom: 1px solid rgba(38,72,109,0.14);
+  .areas__bg{
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center 15%;
+    z-index: -2;
   }
-  .situation h3{ font-size: 1.15rem; font-weight: 500; }
-  .situation p{ opacity: 0.82; max-width: 60ch; }
-  .situation__link{
-    margin-top: var(--space-1); font-size: 0.9rem; text-decoration: none;
-    color: var(--color-primary); border-bottom: 1px solid var(--color-gold);
-    width: fit-content;
+  .areas__overlay{
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(20,38,58,0.93) 0%, rgba(38,72,109,0.88) 45%, rgba(20,38,58,0.94) 100%);
+    z-index: -1;
   }
-  .situation__link:hover, .situation__link:focus-visible{ color: var(--color-bronze); }
+  .areas__grid{
+    display: grid; gap: var(--space-3);
+  }
+  @media (min-width: 700px){
+    .areas__grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+  }
+  @media (min-width: 1050px){
+    .areas__grid{ grid-template-columns: repeat(3, minmax(0,1fr)); }
+  }
 
-  @media (min-width: 800px){
-    .situation{ grid-template-columns: 1fr 1.6fr; align-items: baseline; gap: var(--space-4); padding-block: var(--space-4); }
+  .area-card{
+    background: #fff;
+    border-radius: var(--radius-sm);
+    padding: var(--space-3);
+    box-shadow: 0 18px 34px rgba(10,18,28,0.22);
+    opacity: 0; transform: translateY(16px);
+    transition: opacity 600ms cubic-bezier(.4,0,.2,1), transform 600ms cubic-bezier(.4,0,.2,1);
   }
+  .area-card.is-visible{ opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce){
+    .area-card{ opacity: 1; transform: none; transition: none; }
+  }
+  .area-card__icon{
+    display: inline-flex; width: 40px; height: 40px;
+    color: var(--color-primary); margin-bottom: var(--space-2);
+  }
+  .area-card__icon svg{ width: 100%; height: 100%; }
+  .area-card h3{ font-size: 1.08rem; font-weight: 500; margin-bottom: 0.6rem; }
+  .area-card ul{ display: flex; flex-direction: column; gap: 0.45rem; }
+  .area-card li{
+    font-size: 0.9rem; opacity: 0.82; padding-left: 1rem; position: relative;
+  }
+  .area-card li::before{
+    content: ""; position: absolute; left: 0; top: 0.55em;
+    width: 5px; height: 5px; border-radius: 50%; background: var(--color-gold);
+  }
+  .area-card--text p{ font-size: 0.92rem; opacity: 0.82; }
+
+  .areas__cta{ text-align: center; margin-top: var(--space-4); }
 
   /* ---------- Direito Digital explainer ---------- */
   .explainer{ display: grid; gap: var(--space-5); }
@@ -307,7 +346,8 @@
 
   /* ---------- Sobre ---------- */
   .about__grid{ display: grid; gap: var(--space-4); }
-  .about__media img{ width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: top center; }
+  .about__media img{ width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: top center; opacity:0; transform: scale(1.04); transition: opacity 800ms cubic-bezier(.4,0,.2,1), transform 900ms cubic-bezier(.4,0,.2,1); }
+  .about__media img.is-visible{ opacity:1; transform:none; }
   .about__copy p{ opacity: 0.85; max-width: 60ch; }
   .about__copy p + p{ margin-top: var(--space-2); }
   .about__note{
@@ -363,7 +403,8 @@
   /* ---------- Contact ---------- */
   .contact{ background: var(--color-bg-soft); }
   .contact__grid{ display: grid; gap: var(--space-4); align-items: center; }
-  .contact__media img{ width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+  .contact__media img{ width:100%; aspect-ratio: 3/4; object-fit: cover; object-position: top center; opacity:0; transform: scale(1.04); transition: opacity 800ms cubic-bezier(.4,0,.2,1), transform 900ms cubic-bezier(.4,0,.2,1); }
+  .contact__media img.is-visible{ opacity:1; transform:none; }
   .contact__copy p{ opacity: 0.85; max-width: 52ch; margin-top: var(--space-2); }
   .contact__phone{ margin-top: var(--space-3); font-size: 0.95rem; opacity: 0.7; }
   @media (min-width: 900px){
@@ -405,7 +446,7 @@
 <header class="site-header">
   <div class="container site-header__inner">
     <a class="brand" href="#topo" aria-label="Beatriz Peter, Advogada — página inicial">
-      <img src="assets/icons/Símbolo (6).png" alt="Beatriz Peter, Advogada" width="815" height="390" style="height:44px;width:auto;">
+      <img src="assets/icons/logo-header.jpg" alt="Beatriz Peter, Advogada" width="815" height="390" style="height:44px;width:auto;">
     </a>
 
     <nav class="primary-nav" aria-label="Navegação principal">
@@ -418,7 +459,7 @@
       </ul>
     </nav>
 
-    <a class="header-cta" href="https://wa.me/5515981248650?text=Ol%C3%A1%2C%20Beatriz.%20Acessei%20seu%20site%20e%20gostaria%20de%20obter%20informa%C3%A7%C3%B5es%20sobre%20sua%20atua%C3%A7%C3%A3o%20em%20Direito%20Digital." target="_blank" rel="noopener">
+    <a class="header-cta" href="https://wa.me/5515991494097?text=Ol%C3%A1%2C%20Beatriz.%20Acessei%20seu%20site%20e%20gostaria%20de%20obter%20informa%C3%A7%C3%B5es%20sobre%20sua%20atua%C3%A7%C3%A3o%20em%20Direito%20Digital." target="_blank" rel="noopener">
       Falar pelo WhatsApp
     </a>
 
@@ -435,7 +476,7 @@
       <li><a href="#confidencialidade">Confidencialidade</a></li>
       <li><a href="#contato">Contato</a></li>
       <li>
-        <a class="header-cta" href="https://wa.me/5515981248650?text=Ol%C3%A1%2C%20Beatriz.%20Acessei%20seu%20site%20e%20gostaria%20de%20obter%20informa%C3%A7%C3%B5es%20sobre%20sua%20atua%C3%A7%C3%A3o%20em%20Direito%20Digital." target="_blank" rel="noopener">
+        <a class="header-cta" href="https://wa.me/5515991494097?text=Ol%C3%A1%2C%20Beatriz.%20Acessei%20seu%20site%20e%20gostaria%20de%20obter%20informa%C3%A7%C3%B5es%20sobre%20sua%20atua%C3%A7%C3%A3o%20em%20Direito%20Digital." target="_blank" rel="noopener">
           Falar pelo WhatsApp
         </a>
       </li>
@@ -457,7 +498,7 @@
           forma clara, sem juridiquês.
         </p>
         <div class="hero__actions">
-          <a class="btn btn--primary" href="https://wa.me/5515981248650?text=Ol%C3%A1%2C%20Beatriz.%20Acessei%20seu%20site%20e%20gostaria%20de%20obter%20informa%C3%A7%C3%B5es%20sobre%20sua%20atua%C3%A7%C3%A3o%20em%20Direito%20Digital." target="_blank" rel="noopener">Falar com Beatriz</a>
+          <a class="btn btn--primary" href="https://wa.me/5515991494097?text=Ol%C3%A1%2C%20Beatriz.%20Acessei%20seu%20site%20e%20gostaria%20de%20obter%20informa%C3%A7%C3%B5es%20sobre%20sua%20atua%C3%A7%C3%A3o%20em%20Direito%20Digital." target="_blank" rel="noopener">Falar com Beatriz</a>
           <a class="btn btn--ghost" href="#atuacao">Conhecer minha atuação</a>
         </div>
       </div>
@@ -468,7 +509,7 @@
             srcset="assets/img/beatriz-peter-advogada-direito-digital-notebook-480.webp 480w,
                     assets/img/beatriz-peter-advogada-direito-digital-notebook-768.webp 768w,
                     assets/img/beatriz-peter-advogada-direito-digital-notebook-854.webp 854w"
-
+            sizes="(min-width: 900px) 40vw, 90vw"
             alt="Beatriz Peter, advogada, trabalhando em seu notebook."
             width="854" height="1280"
             fetchpriority="high"
@@ -482,41 +523,98 @@
   <section id="atuacao" aria-labelledby="atuacao-titulo">
     <div class="container">
       <div class="section-head">
-        <p class="kicker">Posicionamento</p>
+        <p class="kicker">Atuação</p>
         <h2 id="atuacao-titulo">O mundo mudou. O Direito também.</h2>
         <p>
           Boa parte da nossa vida hoje acontece em ambientes digitais — e decisões
           aparentemente simples nesse espaço podem gerar consequências jurídicas importantes.
-          Direito Digital é a área que cuida dessas questões, sempre com base na legislação
-          brasileira aplicável.
+          Estas são algumas das situações em que a atuação em Direito Digital faz diferença.
         </p>
       </div>
+    </div>
 
-      <div class="situations">
-        <div class="situation">
-          <h3>Privacidade e dados pessoais</h3>
-          <p>Orientação sobre o uso indevido de dados pessoais e sobre como agir diante de problemas envolvendo sua privacidade.</p>
-          <a class="situation__link" href="https://wa.me/5515981248650?text=Ol%C3%A1%2C%20Beatriz.%20Gostaria%20de%20conversar%20sobre%20uma%20quest%C3%A3o%20de%20privacidade%20e%20dados%20pessoais." target="_blank" rel="noopener">Falar sobre isso →</a>
+    <div class="areas__visual">
+      <img
+        class="areas__bg"
+        src="assets/img/beatriz-peter-advogada-direito-digital-escritorio-854.webp"
+        srcset="assets/img/beatriz-peter-advogada-direito-digital-escritorio-480.webp 480w,
+                assets/img/beatriz-peter-advogada-direito-digital-escritorio-768.webp 768w,
+                assets/img/beatriz-peter-advogada-direito-digital-escritorio-854.webp 854w"
+        sizes="100vw"
+        alt=""
+        role="presentation"
+        loading="lazy"
+      >
+      <span class="areas__overlay" aria-hidden="true"></span>
+
+      <div class="container">
+        <div class="areas__grid">
+          <article class="area-card">
+            <span class="area-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4"/><path d="M9.5 12h6M9.5 15.5h6M9.5 8.5h3"/></svg>
+            </span>
+            <h3>Presença Jurídica Digital</h3>
+            <ul>
+              <li>Contratos digitais</li>
+              <li>Termos de uso e política de privacidade</li>
+              <li>Estruturação jurídica de negócios digitais</li>
+              <li>Adequação à LGPD</li>
+            </ul>
+          </article>
+
+          <article class="area-card">
+            <span class="area-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="3.2"/><path d="M4.5 19c0-3 2-5.2 4.5-5.2s4.5 2.2 4.5 5.2"/><path d="M16 8c1.2 1 1.2 3 0 4M18.3 6c2.2 2 2.2 6 0 8"/></svg>
+            </span>
+            <h3>Influenciadores e Criadores de Conteúdo</h3>
+            <ul>
+              <li>Assessoria jurídica para influenciadores</li>
+              <li>Alvará judicial para influenciador mirim</li>
+              <li>Contratos de publicidade e parcerias</li>
+              <li>Orientação sobre mídias sociais</li>
+            </ul>
+          </article>
+
+          <article class="area-card">
+            <span class="area-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
+            </span>
+            <h3>Segurança e Prevenção Digital</h3>
+            <ul>
+              <li>Proteção de dados pessoais</li>
+              <li>Exposição indevida na internet</li>
+              <li>Proteção de ativos e informações digitais</li>
+              <li>Orientação jurídica preventiva</li>
+            </ul>
+          </article>
+
+          <article class="area-card area-card--text">
+            <span class="area-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="3"/><path d="M6 19c0-3 2.7-5 6-5"/><path d="M15 15.5a4 4 0 1 1 4 4"/><path d="M19.5 15.5v3.5h-3.5"/></svg>
+            </span>
+            <h3>Recuperação de Contas</h3>
+            <p>Recuperação de contas de redes sociais e outras plataformas que foram hackeadas, invadidas ou desativadas indevidamente.</p>
+          </article>
+
+          <article class="area-card area-card--text">
+            <span class="area-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l1 12H5z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/><path d="M12 12v3"/><circle cx="12" cy="17.3" r="0.6" fill="currentColor" stroke="none"/></svg>
+            </span>
+            <h3>Valores Retidos em Marketplaces</h3>
+            <p>Apoio jurídico para quem perdeu o acesso à conta em um marketplace e precisa reaver valores retidos pela plataforma.</p>
+          </article>
+
+          <article class="area-card area-card--text">
+            <span class="area-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M12 8v4.5"/><circle cx="12" cy="15.3" r="0.6" fill="currentColor" stroke="none"/></svg>
+            </span>
+            <h3>Gestão de Crimes Virtuais</h3>
+            <p>Atuação em situações que envolvem crimes cometidos no ambiente digital, como golpes, difamação e outras condutas ilícitas online.</p>
+          </article>
         </div>
-        <div class="situation">
-          <h3>Exposição indevida na internet</h3>
-          <p>Situações em que conteúdos, imagens ou informações foram publicados sem autorização ou de forma prejudicial.</p>
-          <a class="situation__link" href="https://wa.me/5515981248650?text=Ol%C3%A1%2C%20Beatriz.%20Gostaria%20de%20conversar%20sobre%20uma%20situa%C3%A7%C3%A3o%20de%20exposi%C3%A7%C3%A3o%20indevida%20na%20internet." target="_blank" rel="noopener">Falar sobre isso →</a>
-        </div>
-        <div class="situation">
-          <h3>Contratos digitais</h3>
-          <p>Análise e orientação sobre contratos firmados ou negociados em ambientes digitais.</p>
-          <a class="situation__link" href="https://wa.me/5515981248650?text=Ol%C3%A1%2C%20Beatriz.%20Gostaria%20de%20conversar%20sobre%20um%20contrato%20digital." target="_blank" rel="noopener">Falar sobre isso →</a>
-        </div>
-        <div class="situation">
-          <h3>Plataformas e negócios digitais</h3>
-          <p>Questões jurídicas relacionadas ao uso de plataformas digitais e a relações de negócio que dependem delas.</p>
-          <a class="situation__link" href="https://wa.me/5515981248650?text=Ol%C3%A1%2C%20Beatriz.%20Gostaria%20de%20conversar%20sobre%20uma%20quest%C3%A3o%20envolvendo%20uma%20plataforma%20digital." target="_blank" rel="noopener">Falar sobre isso →</a>
-        </div>
-        <div class="situation">
-          <h3>Proteção de ativos e informações digitais</h3>
-          <p>Orientação para proteger informações e ativos que existem ou circulam no ambiente digital.</p>
-          <a class="situation__link" href="https://wa.me/5515981248650?text=Ol%C3%A1%2C%20Beatriz.%20Gostaria%20de%20conversar%20sobre%20prote%C3%A7%C3%A3o%20de%20ativos%20e%20informa%C3%A7%C3%B5es%20digitais." target="_blank" rel="noopener">Falar sobre isso →</a>
+
+        <div class="areas__cta">
+          <a class="btn btn--primary" href="https://wa.me/5515991494097?text=Ol%C3%A1%2C%20Beatriz.%20Gostaria%20de%20conversar%20sobre%20uma%20quest%C3%A3o%20relacionada%20%C3%A0%20sua%20atua%C3%A7%C3%A3o%20em%20Direito%20Digital." target="_blank" rel="noopener">Falar sobre a sua situação</a>
         </div>
       </div>
     </div>
@@ -570,7 +668,7 @@
                   assets/img/beatriz-peter-advogada-retrato-profissional-854.webp 854w"
           sizes="(min-width: 900px) 32vw, 90vw"
           alt="Beatriz Peter, advogada, em retrato profissional."
-
+          width="854" height="1280"
           loading="lazy"
         >
       </div>
@@ -685,20 +783,21 @@
           próximos passos possíveis. Fale diretamente com Beatriz pelo WhatsApp.
         </p>
         <div class="hero__actions">
-          <a class="btn btn--primary" href="https://wa.me/5515981248650?text=Ol%C3%A1%2C%20Beatriz.%20Acessei%20seu%20site%20e%20gostaria%20de%20obter%20informa%C3%A7%C3%B5es%20sobre%20sua%20atua%C3%A7%C3%A3o%20em%20Direito%20Digital." target="_blank" rel="noopener">
+          <a class="btn btn--primary" href="https://wa.me/5515991494097?text=Ol%C3%A1%2C%20Beatriz.%20Acessei%20seu%20site%20e%20gostaria%20de%20obter%20informa%C3%A7%C3%B5es%20sobre%20sua%20atua%C3%A7%C3%A3o%20em%20Direito%20Digital." target="_blank" rel="noopener">
             Falar com Beatriz pelo WhatsApp
           </a>
         </div>
-        <p class="contact__phone"></p>
+        <p class="contact__phone">+55 15 99149-4097</p>
       </div>
       <div class="contact__media">
         <img
-          src="assets/img/beatriz-peter-advogada-ambiente-profissional-720.webp"
-          srcset="assets/img/beatriz-peter-advogada-ambiente-profissional-480.webp 480w,
-                  assets/img/beatriz-peter-advogada-ambiente-profissional-720.webp 720w"
+          src="assets/img/beatriz-peter-advogada-sorridente-escritorio-854.webp"
+          srcset="assets/img/beatriz-peter-advogada-sorridente-escritorio-480.webp 480w,
+                  assets/img/beatriz-peter-advogada-sorridente-escritorio-768.webp 768w,
+                  assets/img/beatriz-peter-advogada-sorridente-escritorio-854.webp 854w"
           sizes="(min-width: 900px) 40vw, 90vw"
-          alt="Beatriz Peter, advogada, em seu ambiente profissional."
-
+          alt="Beatriz Peter, advogada, sorrindo em seu ambiente de trabalho."
+          width="854" height="1280"
           loading="lazy"
         >
       </div>
@@ -711,7 +810,7 @@
   <div class="container">
     <div class="footer__grid">
       <div class="footer__brand">
-        <img src="assets/icons/Símbolo (7).png" alt="Beatriz Peter, Advogada" width="815" height="390" style="height:40px;width:auto;">
+        <img src="assets/icons/logo-footer.jpg" alt="Beatriz Peter, Advogada" width="815" height="390" style="height:40px;width:auto;">
         <p>Advogada com atuação em Direito Digital, com orientação clara sobre privacidade, dados e o ambiente digital.</p>
       </div>
       <div class="footer__col">
@@ -727,7 +826,8 @@
       <div class="footer__col">
         <h4>Contato</h4>
         <ul>
-          <li><a href="https://wa.me/5515981248650" target="_blank" rel="noopener">[INFORMÇÃO NECESSARIA: acrescentar redes sociais aqui, informar quais deseja]</a></li>
+          <li><a href="https://wa.me/5515991494097" target="_blank" rel="noopener">WhatsApp: +55 15 99149-4097</a></li>
+          <li><a href="https://www.instagram.com/adv.beatrizpeter/" target="_blank" rel="noopener me">Instagram: @adv.beatrizpeter</a></li>
           <li><a href="politica-de-privacidade.html">Política de Privacidade</a></li>
           <li><a href="termos-de-uso.html">Termos de Uso</a></li>
         </ul>
@@ -735,12 +835,12 @@
     </div>
     <div class="footer__bottom">
       <span>© <span id="anoAtual">2026</span> Beatriz Peter — Advogada. Todos os direitos reservados.</span>
-      <span>OAB 537.470</span>
+      <span>OAB nº 537.470</span>
     </div>
   </div>
 </footer>
 
-<a class="wa-float" href="https://wa.me/5515981248650?text=Ol%C3%A1%2C%20Beatriz.%20Acessei%20seu%20site%20e%20gostaria%20de%20obter%20informa%C3%A7%C3%B5es%20sobre%20sua%20atua%C3%A7%C3%A3o%20em%20Direito%20Digital." target="_blank" rel="noopener" aria-label="Falar com Beatriz pelo WhatsApp">
+<a class="wa-float" href="https://wa.me/5515991494097?text=Ol%C3%A1%2C%20Beatriz.%20Acessei%20seu%20site%20e%20gostaria%20de%20obter%20informa%C3%A7%C3%B5es%20sobre%20sua%20atua%C3%A7%C3%A3o%20em%20Direito%20Digital." target="_blank" rel="noopener" aria-label="Falar com Beatriz pelo WhatsApp">
   <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.02 3C9.4 3 4 8.4 4 15.02c0 2.35.66 4.55 1.8 6.44L4 29l7.72-1.75a12 12 0 0 0 4.3.79c6.63 0 12.02-5.4 12.02-12.02C28.04 8.4 22.65 3 16.02 3zm0 21.9c-1.36 0-2.7-.28-3.94-.85l-.28-.13-4.6 1.05 1-4.5-.18-.28a9.9 9.9 0 0 1-1.5-5.27c0-5.48 4.46-9.94 9.94-9.94s9.94 4.46 9.94 9.94-4.46 9.98-9.94 9.98zm5.44-7.44c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.48-1.77-1.66-2.07-.17-.3-.02-.46.13-.6.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.6-.92-2.2-.24-.57-.49-.5-.67-.5h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.47s1.07 2.87 1.22 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.48 1.69.62.71.22 1.36.19 1.87.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35z"/></svg>
 </a>
 
@@ -764,20 +864,48 @@
 
     // Scroll charm: reveal each section heading once as it enters view.
     var reveals = document.querySelectorAll('.section-head');
-    if(reveals.length){
-      if('IntersectionObserver' in window){
-        var io = new IntersectionObserver(function(entries){
-          entries.forEach(function(entry){
-            if(entry.isIntersecting){
-              entry.target.classList.add('is-visible');
-              io.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-        reveals.forEach(function(el){ io.observe(el); });
-      } else {
-        reveals.forEach(function(el){ el.classList.add('is-visible'); });
-      }
+    var cards = document.querySelectorAll('.area-card');
+    var mediaImgs = document.querySelectorAll('.about__media img, .contact__media img');
+
+    if('IntersectionObserver' in window){
+      var headIO = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            entry.target.classList.add('is-visible');
+            headIO.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+      reveals.forEach(function(el){ headIO.observe(el); });
+
+      var cardIO = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            var el = entry.target;
+            var delay = Array.prototype.indexOf.call(cards, el) % 3 * 90;
+            setTimeout(function(){ el.classList.add('is-visible'); }, delay);
+            cardIO.unobserve(el);
+          }
+        });
+      }, { threshold: 0.2, rootMargin: '0px 0px -30px 0px' });
+      cards.forEach(function(el){ cardIO.observe(el); });
+
+      var mediaIO = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            entry.target.classList.add('is-visible');
+            mediaIO.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+      mediaImgs.forEach(function(el){
+        if(el.complete){ mediaIO.observe(el); }
+        else { el.addEventListener('load', function(){ mediaIO.observe(el); }, { once: true }); }
+      });
+    } else {
+      reveals.forEach(function(el){ el.classList.add('is-visible'); });
+      cards.forEach(function(el){ el.classList.add('is-visible'); });
+      mediaImgs.forEach(function(el){ el.classList.add('is-visible'); });
     }
   })();
 </script>
