@@ -1,0 +1,17 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Executar app Flask",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/exercicios/exercicio/app.py",
+            "cwd": "${workspaceFolder}/exercicios/exercicio",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "env": {
+                "FLASK_ENV": "development"
+            }
+        }
+    ]
+}
