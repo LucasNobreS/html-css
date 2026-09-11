@@ -1,0 +1,61 @@
+/* ==========================================================================
+   Isadora Nogueira — Advocacia Médica
+   Ajustes responsivos
+   ========================================================================== */
+
+/* Base: construído mobile-first em style.css.
+   Este arquivo refina espaçamentos e composição em telas maiores. */
+
+/* ---- ~360px – 414px (ajustes finos de conforto em smartphones) ---- */
+@media (max-width: 380px) {
+  .container { padding-inline: 1.1rem; }
+  .btn { padding: 0.85rem 1.4rem; font-size: 0.95rem; }
+  h1 { font-size: 2.05rem; }
+}
+
+/* ---- Tablet retrato (≥ 768px) ---- */
+@media (min-width: 768px) {
+  .section { padding-block: var(--space-7); }
+  .hero .container { padding-block: var(--space-7); }
+
+  .hero-figure { max-width: 420px; }
+
+  .article-body { font-size: 1.12rem; }
+}
+
+/* ---- Hero em duas colunas a partir de tablet largo ---- */
+@media (min-width: 860px) {
+  .hero .container {
+    grid-template-columns: 1.15fr 0.85fr;
+  }
+  .hero-figure { justify-self: end; max-width: 100%; }
+}
+
+/* ---- Desktop (≥ 1024px) ---- */
+@media (min-width: 1024px) {
+  body { font-size: 1.09rem; }
+
+  .footer-grid { grid-template-columns: 1.4fr 1fr 1fr 1fr; }
+
+  .whatsapp-float { right: var(--space-4); bottom: var(--space-4); }
+}
+
+/* ---- Desktop largo (≥ 1280px) ---- */
+@media (min-width: 1280px) {
+  :root { --content-width: 1240px; }
+}
+
+/* ---- Telas grandes (≥ 1440px) ---- */
+@media (min-width: 1440px) {
+  :root { --content-width: 1320px; }
+  .hero-figure { max-width: 460px; }
+}
+
+/* ---- Impressão: simplificar para leitura de artigos ---- */
+@media print {
+  .site-header, .site-footer, .whatsapp-float, .hero-mark, .pattern-wash,
+  .mobile-nav, .share-row, .menu-toggle { display: none !important; }
+  body { background: #fff; color: #000; }
+  .article-body, .article-header { max-width: 100%; }
+  a { color: #000; text-decoration: underline; }
+}

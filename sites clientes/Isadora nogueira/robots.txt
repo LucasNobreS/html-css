@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://inadvocaciamedica.com.br/sitemap.xml
