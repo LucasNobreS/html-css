@@ -276,6 +276,35 @@
 
   /* ---------- Positioning ---------- */
   /* ---------- Areas of practice: photo background + card grid ---------- */
+
+    .areas__title {
+    color: var(--color-gold-light);             /* Ajuste para a cor desejada */
+    font-size: 2.5rem;          /* Tamanho grande */
+    font-weight: 700;
+    text-align: center;         /* Centralizado */
+    margin-bottom: 4rem;      /* Espaço entre o título e os cards */
+    position: relative;         /* Garante que fique acima da overlay/imagem */
+    z-index: 2;
+  }
+
+  .area-card {
+  padding-top: 2rem;
+  margin-top: -1rem;
+  margin-bottom: 1.5rem;
+}
+
+.area-card h3 {
+  margin-top: -1rem;
+  margin-bottom: 1.5rem;
+}
+
+  /* Ajuste para telas menores/mobile */
+  @media (max-width: 768px) {
+    .areas__title {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+    }
+  }
   .areas__visual{
     position: relative;
     margin-top: var(--space-5);
@@ -524,13 +553,9 @@
   <section id="atuacao" aria-labelledby="atuacao-titulo">
     <div class="container">
       <div class="section-head">
-        <p class="kicker">Atuação</p>
-        <h2 id="atuacao-titulo">O mundo mudou. O Direito também.</h2>
-        <p>
-          Boa parte da nossa vida hoje acontece em ambientes digitais — e decisões
-          aparentemente simples nesse espaço podem gerar consequências jurídicas importantes.
-          Estas são algumas das situações em que a atuação em Direito Digital faz diferença.
-        </p>
+        <p class="kicker"></p>
+        <h2 id="atuacao-titulo"></h2>
+        
       </div>
     </div>
 
@@ -549,19 +574,25 @@
       <span class="areas__overlay" aria-hidden="true"></span>
 
       <div class="container">
+        <h2 id="atuacao-titulo" class="areas__title">Áreas de Atuação</h2>
         <div class="areas__grid">
           <article class="area-card">
             <span class="area-card__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4"/><path d="M9.5 12h6M9.5 15.5h6M9.5 8.5h3"/></svg>
             </span>
-            <h3>Presença Jurídica Digital</h3>
+            <h3>Estruturação Jurídica de Negócios Digitais</h3>
+            
             <ul>
-              <li>Contratos digitais</li>
-              <li>Termos de uso e política de privacidade</li>
-              <li>Estruturação jurídica de negócios digitais</li>
+              <li>Contratos entre sócios, parceiros e colaboradores</li>
+              <li>Termos de uso e políticas de privacidade</li>
+              <li>Estruturação jurídica de negócios online</li>
+              <li>Direito de imagem e uso de conteúdo</li>
               <li>Adequação à LGPD</li>
+              <li>Regras de cancelamento, reembolso e relacionamento com clientes</li>
             </ul>
           </article>
+
+          
 
           <article class="area-card">
             <span class="area-card__icon" aria-hidden="true">
@@ -569,24 +600,20 @@
             </span>
             <h3>Influenciadores e Criadores de Conteúdo</h3>
             <ul>
-              <li>Assessoria jurídica para influenciadores</li>
-              <li>Alvará judicial para influenciador mirim</li>
               <li>Contratos de publicidade e parcerias</li>
-              <li>Orientação sobre mídias sociais</li>
+              <li>Assessoria jurídica para influenciadores</li>
+              <li>Direito de imagem, voz e conteúdo</li>
+              <li>Relações com marcas e agências</li>
+              <li>Alvará judicial para influenciador mirim</li>
             </ul>
           </article>
 
-          <article class="area-card">
+          <article class="area-card area-card--text">
             <span class="area-card__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
             </span>
-            <h3>Segurança e Prevenção Digital</h3>
-            <ul>
-              <li>Proteção de dados pessoais</li>
-              <li>Exposição indevida na internet</li>
-              <li>Proteção de ativos e informações digitais</li>
-              <li>Orientação jurídica preventiva</li>
-            </ul>
+            <h3>Remoção de Conteúdo e Proteção de Imagem</h3>
+            <p>Atuação em situações envolvendo exposição indevida, perfis falsos, uso não autorizado de imagem ou voz, conteúdo ofensivo, plágio e violações de direitos autorais.</p>
           </article>
 
           <article class="area-card area-card--text">
@@ -594,25 +621,42 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="3"/><path d="M6 19c0-3 2.7-5 6-5"/><path d="M15 15.5a4 4 0 1 1 4 4"/><path d="M19.5 15.5v3.5h-3.5"/></svg>
             </span>
             <h3>Recuperação de Contas</h3>
-            <p>Recuperação de contas de redes sociais e outras plataformas que foram hackeadas, invadidas ou desativadas indevidamente.</p>
+            <p>Atuação em casos de contas hackeadas, invadidas, suspensas, desativadas ou banidas em redes sociais, aplicativos e outras plataformas digitais.</p>
           </article>
 
           <article class="area-card area-card--text">
             <span class="area-card__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l1 12H5z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/><path d="M12 12v3"/><circle cx="12" cy="17.3" r="0.6" fill="currentColor" stroke="none"/></svg>
             </span>
-            <h3>Valores Retidos em Marketplaces</h3>
-            <p>Apoio jurídico para quem perdeu o acesso à conta em um marketplace e precisa reaver valores retidos pela plataforma.</p>
+            <h3>Marketplaces </h3>
+            <p>Atuação em casos de bloqueio de lojas, suspensão de contas, restrições indevidas e retenção de valores por marketplaces e plataformas digitais.</p>
+          </article>
+
+          <article class="area-card">
+            <span class="area-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4"/><path d="M9.5 12h6M9.5 15.5h6M9.5 8.5h3"/></svg>
+            </span>
+            <h3>Consultoria Jurídica Preventiva</h3>
+            <ul>
+              <li>Análise preventiva de riscos jurídicos</li>
+              <li>Revisão de contratos e documentos</li>
+              <li>Orientação sobre uso de plataformas e redes sociais</li>
+              <li>Proteção de dados e ativos digitais</li>
+              <li>Apoio em situações envolvendo clientes, parceiros e fornecedores</li>
+              <li>Orientação jurídica contínua para negócios digitais</li>
+            </ul>
           </article>
 
           <article class="area-card area-card--text">
             <span class="area-card__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M12 8v4.5"/><circle cx="12" cy="15.3" r="0.6" fill="currentColor" stroke="none"/></svg>
             </span>
-            <h3>Gestão de Crimes Virtuais</h3>
-            <p>Atuação em situações que envolvem crimes cometidos no ambiente digital, como golpes, difamação e outras condutas ilícitas online.</p>
+            <h3>Golpes, Fraudes e Ilícitos Digitais</h3>
+            <p>Atuação jurídica em casos de golpes virtuais, fraudes, difamação, injúria, calúnia, exposição indevida e outras violações praticadas no ambiente digital.</p>
           </article>
         </div>
+
+        
 
         <div class="areas__cta">
           <a class="btn btn--primary" href="https://wa.me/5515991494097?text=Ol%C3%A1%2C%20Beatriz.%20Gostaria%20de%20conversar%20sobre%20uma%20quest%C3%A3o%20relacionada%20%C3%A0%20sua%20atua%C3%A7%C3%A3o%20em%20Direito%20Digital." target="_blank" rel="noopener">Falar sobre a sua situação</a>
@@ -674,7 +718,7 @@
         >
       </div>
       <div class="about__copy">
-        <p class="kicker">Sobre mim:</p>
+        <p class="kicker">SOBRE MIM:</p>
         <h2>Beatriz Peter</h2>
         <p>
           Sou advogada especialista em Direito Digital, com atuação voltada à proteção de pessoas, profissionais e negócios no ambiente online.
@@ -695,8 +739,8 @@
   <section class="section-dark" aria-labelledby="atendimento-titulo">
     <div class="container">
       <div class="section-head">
-        <p class="kicker">Atendimento</p>
-        <h2 id="atendimento-titulo">Como funciona o primeiro contato</h2>
+        <p class="kicker">ATENDIMENTO</p>
+        <h2 id="atendimento-titulo">Como funciona o primeiro contato:</h2>
         <p>Um processo simples, pensado para que você entenda sua situação antes de decidir como avançar.</p>
       </div>
 
@@ -743,26 +787,42 @@
   <section aria-labelledby="faq-titulo">
     <div class="container">
       <div class="section-head">
-        <p class="kicker">Perguntas frequentes</p>
+        <p class="kicker">PERGUNTAS FREQUENTES</p>
         <h2 id="faq-titulo">Dúvidas comuns</h2>
       </div>
 
       <div class="faq-list">
         <details class="faq-item">
-          <summary>Direito Digital é só para empresas de tecnologia?</summary>
-          <p>Não. Qualquer pessoa ou empresa que utilize redes sociais, aplicativos, sites ou tenha dados pessoais tratados digitalmente pode, em algum momento, precisar de orientação nessa área.</p>
+          <summary>Meu WhatsApp foi banido ou bloqueado. É possível recuperar a conta?</summary>
+          <p>Depende do motivo do bloqueio e das circunstâncias do caso. A situação pode ser avaliada tanto pela via administrativa quanto, quando necessário, pela via judicial, com o objetivo de buscar a reativação da conta.</p>
         </details>
         <details class="faq-item">
-          <summary>Como funciona o primeiro contato?</summary>
-          <p>O contato inicial é feito pelo WhatsApp. A partir dele, eu entendo sua situação e oriento sobre os próximos passos possíveis.</p>
+          <summary>O Instagram desativou minha conta sem explicar o motivo. O que posso fazer?</summary>
+          <p>É importante reunir avisos da plataforma, protocolos, e-mails, prints e demais informações relacionadas à conta. A partir desses elementos, é possível avaliar as medidas cabíveis para contestar a suspensão ou desativação e buscar o restabelecimento do acesso.</p>
         </details>
         <details class="faq-item">
-          <summary>O atendimento é presencial ou remoto?</summary>
-          <p>[INFORMAÇÃO NECESSÁRIA: confirmar se o atendimento é presencial, remoto ou ambos, e em qual cidade/região, para responder esta pergunta com precisão.]</p>
+          <summary>Minha conta foi hackeada ou invadida. Quais provas devo guardar?</summary>
+          <p>Guarde prints, e-mails de alteração de senha ou acesso, notificações da plataforma, protocolos de atendimento, mensagens recebidas e qualquer informação que ajude a demonstrar como e quando ocorreu a invasão. Esses registros podem ser importantes para as medidas cabíveis.</p>
         </details>
         <details class="faq-item">
-          <summary>Preciso já ter um problema para entrar em contato?</summary>
-          <p>Não necessariamente. Muitas vezes, uma orientação preventiva evita que uma situação simples se torne mais complexa no futuro.</p>
+          <summary>Um marketplace bloqueou minha loja e reteve meu saldo. O que fazer?</summary>
+          <p>É possível avaliar os motivos apresentados pela plataforma, os termos aplicáveis à conta e a retenção dos valores. Conforme o caso, podem ser adotadas medidas para questionar o bloqueio e buscar a liberação do saldo.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Posso pedir a remoção de um conteúdo publicado sobre mim na internet?</summary>
+          <p>Em determinadas situações, sim. Casos envolvendo exposição indevida, uso não autorizado de imagem ou voz, perfis falsos, conteúdo ofensivo ou outras violações de direitos podem justificar pedidos de remoção e demais medidas cabíveis.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Você atende influenciadores e criadores de conteúdo?</summary>
+          <p>Sim. A atuação pode envolver contratos com marcas e agências, publicidade, direito de imagem, uso de conteúdo, parcerias comerciais, proteção de perfis e orientação jurídica preventiva.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Empresas e negócios digitais também podem contratar consultoria preventiva?</summary>
+          <p>Sim. A consultoria preventiva busca identificar riscos e oferecer maior segurança jurídica à operação, podendo envolver contratos, termos de uso, políticas de privacidade, LGPD e relações com clientes, parceiros e fornecedores.</p>
+        </details>
+        <details class="faq-item">
+          <summary>É possível estruturar juridicamente um negócio digital desde o início?</summary>
+          <p>Sim. A estruturação pode abranger contratos entre sócios e parceiros, documentos voltados a clientes e usuários, proteção de dados, direito de imagem, regras de cancelamento e reembolso e outros instrumentos necessários ao funcionamento do negócio.</p>
         </details>
       </div>
     </div>
@@ -772,11 +832,10 @@
   <section id="contato" class="contact" aria-labelledby="contato-titulo">
     <div class="container contact__grid">
       <div class="contact__copy">
-        <p class="kicker">Contato</p>
-        <h2 id="contato-titulo">Tem uma questão relacionada ao ambiente digital?</h2>
+        <p class="kicker">CONTATO</p>
+        <h2 id="contato-titulo">Vamos conversar sobre o seu caso?</h2>
         <p>
-          O contato inicial serve para entender a sua situação com calma e orientar sobre os
-          próximos passos possíveis. Fale diretamente comigo pelo WhatsApp.
+          Se você está enfrentando uma situação no ambiente digital ou busca orientação jurídica preventiva para o seu negócio, entre em contato. O atendimento é feito de forma clara, estratégica e personalizada.
         </p>
         <div class="hero__actions">
           <a class="btn btn--primary" href="https://wa.me/5515991494097?text=Ol%C3%A1%2C%20Beatriz.%20Acessei%20seu%20site%20e%20gostaria%20de%20obter%20informa%C3%A7%C3%B5es%20sobre%20sua%20atua%C3%A7%C3%A3o%20em%20Direito%20Digital." target="_blank" rel="noopener">
@@ -807,7 +866,7 @@
     <div class="footer__grid">
       <div class="footer__brand">
         <img src="assets/icons/Símbolo (7).png" alt="Beatriz Peter, Advogada" width="815" height="390" style="height:40px;width:auto;">
-        <p>Advogada com atuação em Direito Digital, com orientação clara sobre privacidade, dados e o ambiente digital.</p>
+        <p>Advogada com atuação em Direito Digital, oferecendo orientação jurídica clara para pessoas e negócios no ambiente online.</p>
       </div>
       <div class="footer__col">
         <h4>Navegação</h4>
