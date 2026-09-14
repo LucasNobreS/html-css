@@ -23,7 +23,7 @@
 <meta name="twitter:image" content="https://inadvocaciamedica.com.br/assets/images/retrato-perfil-900.jpg">
 
 <!-- Favicons -->
-<link rel="icon" href="/favicon/favicon.ico" sizes="any">
+<link rel="icon" href="favicon/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
 <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
@@ -53,6 +53,7 @@
       "identifier": "OAB 70.167",
       "url": "https://inadvocaciamedica.com.br/sobre.html",
       "image": "https://inadvocaciamedica.com.br/assets/images/retrato-perfil-900.jpg",
+      "sameAs": ["https://instagram.com/in.advocaciamedica"],
       "worksFor": { "@id": "https://inadvocaciamedica.com.br/#legalservice" }
     },
     {
@@ -60,8 +61,10 @@
       "@id": "https://inadvocaciamedica.com.br/#legalservice",
       "name": "Isadora Nogueira Advocacia Médica",
       "url": "https://inadvocaciamedica.com.br/",
-      "telephone": "+55 71 8866-0341",
+      "telephone": "+55 71 99676-5997",
+      "email": "contato@inadvocaciamedica.com.br",
       "areaServed": "BR",
+      "sameAs": ["https://instagram.com/in.advocaciamedica"],
       "founder": { "@id": "https://inadvocaciamedica.com.br/#isadora-nogueira" },
       "priceRange": "Sob consulta"
     },
@@ -75,6 +78,18 @@
   ]
 }
 </script>
+<style>
+  .highlight-cta{border-left:3px solid var(--navy); background:rgba(33,40,66,0.05); padding: var(--space-3) var(--space-4); margin: var(--space-4) 0;}
+  .highlight-cta p{margin:0; font-style:italic;}
+  .book-card{display:flex; gap:var(--space-4); align-items:flex-start; background:rgba(33,40,66,0.04); padding:var(--space-4); border-radius:4px; flex-wrap:wrap;}
+  .book-card img{width:140px; height:auto; flex-shrink:0;}
+  .faq-item{border-bottom:1px solid rgba(33,40,66,0.15); padding: var(--space-3) 0;}
+  .faq-item summary{cursor:pointer; font-family:var(--font-display); font-size:1.15rem; list-style:none;}
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary::after{content:"+"; float:right;}
+  .faq-item[open] summary::after{content:"–";}
+  .faq-item p, .faq-item ul{margin-top:var(--space-2); color:var(--ink-soft);}
+</style>
 </head>
 <body>
 <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -96,7 +111,7 @@
     </nav>
 
     <div class="cluster">
-      <a class="btn btn--outline header-cta" href="https://wa.me/557188660341?text=Ol%C3%A1%2C%20Dra.%20Isadora.%20Gostaria%20de%20agendar%20um%20atendimento%20sobre%20Direito%20M%C3%A9dico." target="_blank" rel="noopener">Agendar atendimento</a>
+      <a class="btn btn--outline header-cta" href="https://wa.me/5571996765997?text=Ol%C3%A1%2C%20Dra.%20Isadora.%20Gostaria%20de%20agendar%20um%20atendimento%20sobre%20Direito%20M%C3%A9dico." target="_blank" rel="noopener">Agendar atendimento</a>
       <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-nav" aria-label="Abrir menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
@@ -118,7 +133,7 @@
     <li><a href="artigos.html">Artigos</a></li>
     <li><a href="contato.html">Contato</a></li>
   </ul>
-  <a class="btn btn--primary mobile-nav-cta" href="https://wa.me/557188660341?text=Ol%C3%A1%2C%20Dra.%20Isadora.%20Gostaria%20de%20agendar%20um%20atendimento%20sobre%20Direito%20M%C3%A9dico." target="_blank" rel="noopener">Agendar atendimento</a>
+  <a class="btn btn--primary mobile-nav-cta" href="https://wa.me/5571996765997?text=Ol%C3%A1%2C%20Dra.%20Isadora.%20Gostaria%20de%20agendar%20um%20atendimento%20sobre%20Direito%20M%C3%A9dico." target="_blank" rel="noopener">Agendar atendimento</a>
 </nav>
 
 <main id="conteudo">
@@ -128,10 +143,11 @@
     <div class="container">
       <div class="hero-copy">
         <span class="eyebrow">Direito Médico, da Saúde e Bioética</span>
-        <h1>Defesa jurídica especializada de médicos e profissionais da saúde.</h1>
+        <h1>Você dedica a vida a cuidar de pacientes. Alguém precisa cuidar dos seus direitos.</h1>
+        <p class="lede" style="font-style:italic;">Defesa jurídica especializada de médicos e profissionais da saúde.</p>
         <p class="lede">Isadora Nogueira atua em todo o Brasil, de forma preventiva e contenciosa, defendendo o patrimônio e a carreira de quem exerce a medicina — com atendimento 100% remoto e sigiloso.</p>
         <div class="hero-actions">
-          <a class="btn btn--primary" href="https://wa.me/557188660341?text=Ol%C3%A1%2C%20Dra.%20Isadora.%20Gostaria%20de%20agendar%20um%20atendimento%20sobre%20Direito%20M%C3%A9dico." target="_blank" rel="noopener">Agendar atendimento</a>
+          <a class="btn btn--primary" href="https://wa.me/5571996765997?text=Ol%C3%A1%2C%20Dra.%20Isadora.%20Gostaria%20de%20agendar%20um%20atendimento%20sobre%20Direito%20M%C3%A9dico." target="_blank" rel="noopener">Agendar atendimento</a>
           <a class="btn btn--ghost" href="direito-medico.html">Conheça a atuação</a>
         </div>
       </div>
@@ -165,6 +181,11 @@
         <p><a class="text-link" href="sobre.html">Saiba mais sobre a atuação →</a></p>
       </div>
     </div>
+    <div class="container">
+      <div class="highlight-cta">
+        <p>Quer entender se o seu caso se enquadra em algum direito específico da carreira médica? <a class="text-link" href="https://wa.me/5571996765997?text=Ol%C3%A1%2C%20Dra.%20Isadora.%20Gostaria%20de%20agendar%20um%20atendimento%20sobre%20Direito%20M%C3%A9dico." target="_blank" rel="noopener">Fale com nossa equipe pelo WhatsApp.</a></p>
+      </div>
+    </div>
   </section>
 
   <section class="section" data-surface="dark" style="background:var(--navy);">
@@ -191,6 +212,37 @@
     </div>
   </section>
 
+  <section class="section section--tight">
+    <div class="container">
+      <span class="eyebrow">Como funciona o atendimento</span>
+      <h2>Um processo simples, pensado para quem não tem tempo nem familiaridade com termos jurídicos.</h2>
+      <hr class="hr">
+      <div class="pillars">
+        <div class="pillar">
+          <span class="pillar-index">1</span>
+          <h3>Primeiro contato, pelo WhatsApp</h3>
+          <p>Você conta o essencial da sua situação — se é sobre residência, financiamento estudantil, contrato de plantão ou outra questão. Não é preciso saber nenhum termo técnico antes.</p>
+        </div>
+        <div class="pillar">
+          <span class="pillar-index">2</span>
+          <h3>Análise sigilosa de viabilidade</h3>
+          <p>A partir do que você relatar, é feita uma análise para entender se, e como, existe um direito a ser reivindicado no seu caso específico. Essa etapa é sigilosa e não gera nenhum compromisso.</p>
+        </div>
+        <div class="pillar">
+          <span class="pillar-index">3</span>
+          <h3>Proposta de atuação</h3>
+          <p>Se houver viabilidade, você recebe uma explicação clara de como o caso seria conduzido — pela via preventiva ou contenciosa — e as condições de honorários, ajustadas a cada situação.</p>
+        </div>
+        <div class="pillar">
+          <span class="pillar-index">4</span>
+          <h3>Condução do caso, com atualização constante</h3>
+          <p>O acompanhamento é feito de forma remota, com atualizações sobre cada etapa, mantendo o mesmo nível de atenção e sigilo de um atendimento presencial.</p>
+        </div>
+      </div>
+      <p class="lede" style="margin-top: var(--space-4);">Tudo isso sem que você precise se deslocar até Salvador ou sair do seu plantão para resolver.</p>
+    </div>
+  </section>
+
   <section class="section">
     <div class="container two-col-head">
       <div>
@@ -203,32 +255,78 @@
       <div class="editorial-list">
         <article class="editorial-item">
           <span class="meta">Financiamento estudantil · 2 min de leitura</span>
-          <h3><a href="artigos/abatimento-saldo-devedor-fies-medicos.html">Abatimento do saldo devedor do FIES para médicos e profissionais da saúde</a></h3>
-          <p>Quem atua no SUS ou em regiões de vulnerabilidade pode ter direito a um abatimento expressivo — ou até a quitação — do saldo devedor do financiamento estudantil.</p>
+          <h3><a href="artigos/abatimento-saldo-devedor-fies-medicos.html">Abatimento do FIES para médicos: como reduzir ou quitar o saldo devedor legalmente</a></h3>
+          <p>Médicos que atuam no SUS ou em regiões de vulnerabilidade podem ter direito a um abatimento expressivo — ou até a quitação — do saldo devedor do financiamento estudantil.</p>
           <p><a class="text-link" href="artigos/abatimento-saldo-devedor-fies-medicos.html">Ler artigo →</a></p>
         </article>
         <article class="editorial-item">
           <span class="meta">Residência médica · 3 min de leitura</span>
-          <h3><a href="artigos/auxilio-moradia-medicos-residentes.html">Auxílio-moradia para médicos residentes: um direito frequentemente negligenciado</a></h3>
+          <h3><a href="artigos/auxilio-moradia-medicos-residentes.html">Auxílio-moradia para médicos residentes: conheça seus direitos e como pleitear a indenização retroativa</a></h3>
           <p>A Lei nº 6.932/1981 garante condições adequadas de moradia durante a residência médica. Quando isso não ocorre, surge o direito a uma indenização substitutiva.</p>
           <p><a class="text-link" href="artigos/auxilio-moradia-medicos-residentes.html">Ler artigo →</a></p>
         </article>
+        <article class="editorial-item">
+          <span class="meta">Tributário e PJ médico · 3 min de leitura</span>
+          <h3><a href="artigos/equiparacao-hospitalar-medicos-pj.html">Equiparação hospitalar para médicos PJ: como reduzir legalmente os impostos da sua clínica ou empresa</a></h3>
+          <p>Empresas médicas que cumprem os requisitos legais podem reduzir drasticamente a alíquota de IRPJ e CSLL — e ainda recuperar valores pagos a maior nos últimos 5 anos.</p>
+          <p><a class="text-link" href="artigos/equiparacao-hospitalar-medicos-pj.html">Ler artigo →</a></p>
+        </article>
       </div>
       <p style="margin-top: var(--space-4);"><a class="text-link" href="artigos.html">Ver todos os artigos →</a></p>
+      <div class="highlight-cta">
+        <p>Quer entender se o seu caso se enquadra em algum direito específico da carreira médica? <a class="text-link" href="https://wa.me/5571996765997?text=Ol%C3%A1%2C%20Dra.%20Isadora.%20Gostaria%20de%20agendar%20um%20atendimento%20sobre%20Direito%20M%C3%A9dico." target="_blank" rel="noopener">Fale com nossa equipe pelo WhatsApp.</a></p>
+      </div>
     </div>
   </section>
 
   <section class="section section--tight" data-surface="dark" style="background:var(--navy);">
     <div class="container">
-      <div class="two-col-head" style="align-items:center;">
+      <div class="two-col-head" style="align-items:start;">
         <h2>Fale diretamente com a equipe responsável pelo seu caso.</h2>
-        <div>
-          <p style="margin-bottom: var(--space-3);">Atendimento 100% remoto, com sigilo, para todo o Brasil.</p>
-          <a class="btn btn--primary" href="https://wa.me/557188660341?text=Ol%C3%A1%2C%20Dra.%20Isadora.%20Gostaria%20de%20agendar%20um%20atendimento%20sobre%20Direito%20M%C3%A9dico." target="_blank" rel="noopener">Falar no WhatsApp</a>
-        </div>
+        <p style="color: rgba(230,215,196,0.8);">Atendimento 100% remoto, com sigilo, para todo o Brasil. Preencha os campos abaixo — ao enviar, uma mensagem já pronta abre no seu WhatsApp, é só confirmar.</p>
       </div>
+      <form class="contact-form" id="form-contato-home" style="max-width:560px; margin-top: var(--space-4); display:grid; gap: var(--space-3);">
+        <div class="stack" style="gap:6px;">
+          <label for="nome-home" style="color:#fff;">Nome</label>
+          <input type="text" id="nome-home" name="nome" required style="padding:12px; border:1px solid rgba(255,255,255,0.3); border-radius:4px; font-family:inherit; background:rgba(255,255,255,0.05); color:#fff;">
+        </div>
+        <div class="stack" style="gap:6px;">
+          <label for="email-home" style="color:#fff;">E-mail</label>
+          <input type="email" id="email-home" name="email" required style="padding:12px; border:1px solid rgba(255,255,255,0.3); border-radius:4px; font-family:inherit; background:rgba(255,255,255,0.05); color:#fff;">
+        </div>
+        <div class="stack" style="gap:6px;">
+          <label for="telefone-home" style="color:#fff;">Telefone</label>
+          <input type="tel" id="telefone-home" name="telefone" required style="padding:12px; border:1px solid rgba(255,255,255,0.3); border-radius:4px; font-family:inherit; background:rgba(255,255,255,0.05); color:#fff;">
+        </div>
+        <div class="stack" style="gap:6px;">
+          <label for="caso-home" style="color:#fff;">Breve descrição do caso</label>
+          <textarea id="caso-home" name="caso" rows="4" required style="padding:12px; border:1px solid rgba(255,255,255,0.3); border-radius:4px; font-family:inherit; background:rgba(255,255,255,0.05); color:#fff; resize:vertical;"></textarea>
+        </div>
+        <button class="btn btn--primary" type="submit" style="justify-self:start;">Enviar pelo WhatsApp</button>
+      </form>
     </div>
   </section>
+
+  <script>
+    (function () {
+      var form = document.getElementById('form-contato-home');
+      if (!form) return;
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var nome = document.getElementById('nome-home').value.trim();
+        var email = document.getElementById('email-home').value.trim();
+        var telefone = document.getElementById('telefone-home').value.trim();
+        var caso = document.getElementById('caso-home').value.trim();
+        var mensagem =
+          'Olá, Dra. Isadora. Meu nome é ' + nome + '.\n' +
+          'E-mail: ' + email + '\n' +
+          'Telefone: ' + telefone + '\n' +
+          'Descrição do caso: ' + caso;
+        var url = 'https://wa.me/5571996765997?text=' + encodeURIComponent(mensagem);
+        window.open(url, '_blank', 'noopener');
+      });
+    })();
+  </script>
 
 </main>
 
@@ -247,7 +345,8 @@
     </nav>
     <nav class="footer-nav" aria-label="Legal">
       <a href="politica-de-privacidade.html">Política de Privacidade</a>
-      <a href="https://wa.me/557188660341" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="https://wa.me/5571996765997" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="https://instagram.com/in.advocaciamedica" target="_blank" rel="noopener">Instagram</a>
     </nav>
   </div>
   <div class="container footer-bottom">
@@ -256,7 +355,7 @@
   </div>
 </footer>
 
-<a class="whatsapp-float" href="https://wa.me/557188660341?text=Ol%C3%A1%2C%20Dra.%20Isadora.%20Gostaria%20de%20agendar%20um%20atendimento%20sobre%20Direito%20M%C3%A9dico." target="_blank" rel="noopener" aria-label="Falar no WhatsApp com Isadora Nogueira">
+<a class="whatsapp-float" href="https://wa.me/5571996765997?text=Ol%C3%A1%2C%20Dra.%20Isadora.%20Gostaria%20de%20agendar%20um%20atendimento%20sobre%20Direito%20M%C3%A9dico." target="_blank" rel="noopener" aria-label="Falar no WhatsApp com Isadora Nogueira">
   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.5-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.3.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.6-.3z"/><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
   <span class="wf-label">WhatsApp</span>
 </a>
