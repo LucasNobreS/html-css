@@ -548,7 +548,7 @@ body.nav-open { overflow: hidden; }
 [data-surface="dark"] .pillars > * + * { border-color: var(--line-on-dark); }
 
 .pillar .pillar-index {
-  font-family: var(--font-display);
+  font-family: var(--font-mono);
   font-size: 1rem;
   color: var(--gold-deep);
   display: block;
@@ -571,7 +571,7 @@ body.nav-open { overflow: hidden; }
   margin-bottom: 0.2rem;
 }
 .info-list dd {
-  font-family: var(--font-display);
+  font-family: var(--font-mono);
   font-size: 1.15rem;
   margin-bottom: var(--space-3);
 }
@@ -658,6 +658,61 @@ body.nav-open { overflow: hidden; }
   max-width: var(--content-width);
   margin-inline: auto;
 }
+.related-articles h3 {
+  font-style: normal;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  margin-bottom: var(--space-3);
+}
+.related-articles ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.related-articles li { list-style: none; }
+
+.article-cta {
+  max-width: var(--reading-width);
+  margin-inline: auto;
+  text-align: center;
+}
+
+.highlight-cta {
+  max-width: var(--reading-width);
+  margin: var(--space-4) auto;
+  padding: var(--space-3) var(--space-4);
+  border-left: 3px solid var(--champagne);
+  background: rgba(33, 40, 66, 0.05);
+}
+.highlight-cta p { margin: 0; font-style: italic; }
+[data-surface="dark"] .highlight-cta { background: rgba(255, 255, 255, 0.06); border-color: var(--champagne); }
+
+.faq-item {
+  border-bottom: 1px solid var(--line-on-dark);
+  padding: var(--space-3) 0;
+}
+.faq-item summary {
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  list-style: none;
+  color: var(--champagne);
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after { content: "+"; float: right; }
+.faq-item[open] summary::after { content: "–"; }
+.faq-item p, .faq-item ul { margin-top: var(--space-2); color: var(--cream); }
+
+.book-card {
+  display: flex;
+  gap: var(--space-4);
+  align-items: flex-start;
+  background: rgba(33, 40, 66, 0.04);
+  padding: var(--space-4);
+  border-radius: var(--radius);
+  flex-wrap: wrap;
+}
+.book-card img { width: 140px; height: auto; flex-shrink: 0; }
 
 /* -------------------------------------------------------------------------
    11. Footer
