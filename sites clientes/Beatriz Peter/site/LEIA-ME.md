@@ -46,3 +46,23 @@ recortes cujo fundo já bate exatamente com as cores oficiais (`#E9EAEC` no head
 `#26486D` no rodapé), então o logo aparece "flutuando" sem borda visível. Se quiser
 liberdade total de fundo no futuro, vale pedir ao designer os arquivos em SVG ou PNG
 transparente.
+
+---
+
+## SEO (otimização aplicada)
+**No código (já feito):**
+- `title` e `description` únicos por página; canonical, hreflang `pt-BR`, `robots` com `max-image-preview:large`.
+- Open Graph / Twitter Card com imagem própria 1200×630 (`assets/img/beatriz-peter-advogada-direito-digital-og-1200x630.jpg`).
+- JSON-LD em `@graph`: Attorney, Person (com OAB), WebSite, WebPage e FAQPage (idêntico ao FAQ visível); BreadcrumbList nas páginas legais.
+- `sitemap.xml` com `lastmod` e imagens; `robots.txt`; `site.webmanifest` completo.
+- Performance (Core Web Vitals): preload da imagem principal com `srcset` correto, fontes sem bloquear a renderização, dimensões reais dos logos (sem salto de layout), `decoding="async"`.
+- `alt` descritivos, âncoras `#duvidas`, `#atendimento`, `#direito-digital`, logos com nomes de arquivo seguros para URL.
+- `.htaccess` (só Apache/LiteSpeed): HTTPS, domínio sem `www`, `/index.html` → `/`, compressão e cache.
+
+**Fora do código (só você/ela consegue fazer — é o que mais pesa no ranking local):**
+1. Google Search Console: verificar o domínio e enviar `https://advbeatrizpeter.com.br/sitemap.xml`.
+2. Google Perfil da Empresa (exige cidade/endereço ou área de atuação) — depois, adicionar `address` ao JSON-LD.
+3. Bing Webmaster Tools (importar do Search Console).
+4. Links externos: link no Instagram, perfil na seccional da OAB, diretórios jurídicos.
+5. Conteúdo: uma página por serviço (ex.: recuperação de conta, bloqueio em marketplace) e artigos.
+6. Preencher os `[INFORMAÇÃO NECESSÁRIA]` das páginas de Privacidade e Termos antes de divulgar.

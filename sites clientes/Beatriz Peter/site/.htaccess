@@ -1,0 +1,48 @@
+# SEO técnico — vale para hospedagens Apache/LiteSpeed (cPanel, Hostinger, Locaweb etc.).
+# Em Netlify, Vercel, GitHub Pages ou Cloudflare Pages este arquivo é ignorado (sem efeito colateral).
+# Todas as regras estão protegidas por <IfModule>: se o módulo não existir, a regra é simplesmente pulada.
+
+Options -Indexes
+DirectoryIndex index.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # 1) Sempre HTTPS (respeita proxies/CDN como Cloudflare para não gerar loop de redirecionamento)
+  RewriteCond %{HTTPS} off
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteRule ^ https://advbeatrizpeter.com.br%{REQUEST_URI} [L,R=301]
+
+  # 2) Um único host canônico (sem www)
+  RewriteCond %{HTTP_HOST} ^www\.advbeatrizpeter\.com\.br$ [NC]
+  RewriteRule ^ https://advbeatrizpeter.com.br%{REQUEST_URI} [L,R=301]
+
+  # 3) /index.html -> / (evita URL duplicada da home)
+  RewriteCond %{THE_REQUEST} \s/index\.html[\s?] [NC]
+  RewriteRule ^index\.html$ / [L,R=301]
+</IfModule>
+
+# Compressão
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/xml application/json application/ld+json application/manifest+json image/svg+xml application/javascript
+</IfModule>
+
+# Cache de longa duração para arquivos estáticos (melhora velocidade e Core Web Vitals)
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/x-icon "access plus 1 month"
+  ExpiresByType image/vnd.microsoft.icon "access plus 1 month"
+  ExpiresByType application/manifest+json "access plus 1 week"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType application/xml "access plus 1 day"
+  ExpiresByType text/plain "access plus 1 day"
+</IfModule>
+
+<IfModule mod_mime.c>
+  AddType application/manifest+json .webmanifest
+  AddType image/webp .webp
+</IfModule>
