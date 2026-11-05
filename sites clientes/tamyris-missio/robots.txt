@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dra-tamyris-missio.l72587697.chatgpt.site/sitemap.xml
