@@ -1,6 +1,4 @@
-# Produção: libera o rastreamento. Em ambiente de testes, troque por "Disallow: /" (e remova ao publicar).
-# Atenção: robots.txt não protege dados nem garante a remoção de páginas do índice.
 User-agent: *
 Allow: /
 
-Sitemap: https://SEU-DOMINIO.com.br/sitemap.xml
+Sitemap: https://dra-tamyris-missio.l72587697.chatgpt.site/sitemap.xml
