@@ -53,3 +53,5 @@ Telefone e WhatsApp: +55 15 99172-6572. Botão flutuante em todas as páginas. M
 
 ## Articoli e refino visual
 Página artigos.html com estado vazio real, sem artigos fictícios. Para publicar, inserir cards com links para páginas HTML completas e metadados próprios; revisar autoria e fontes. Só então incluir páginas de conteúdo no sitemap.
+
+Atualização 10/11/2026: fotos reais em WebP responsivo; retrato prioritário e foto interna com lazy loading. Seis perguntas do PDF adaptadas após conferência em fontes oficiais. Seção acadêmica reduzida a atualização profissional, sem destaque da palestra sobre defesa médica. Submeter redação jurídica adaptada à profissional antes do lançamento público.
