@@ -45,7 +45,7 @@ Telefone e WhatsApp: +55 15 99172-6572. Botão flutuante em todas as páginas. M
 - Versão-base: HTMLs anexados pelo cliente. Retiradas as referências ao atendimento na rede pública de todas as páginas, metadados e FAQ.
 - Formação atualizada pelo mini currículo: Direito/ESAMC, Enfermagem/PUC-SP, 10 anos de atuação clínica, pós em Direito Médico e Bioética/Santa Casa.
 - Incluídos palestra de 2024, autoria de capítulo com publicação prevista, congressos e cursos listados no currículo. Não foram criados eventos, premiações ou apresentações não documentadas.
-- Confirmar publicação efetiva do capítulo e nomenclatura da editora; o currículo registra previsão para o segundo semestre de 2026.
+- Confirmar publicação efetiva do capítulo e nomenclatura da editora; o currículo registra previsão para o primeiro semestre de 2027.
 - Apresentação de trabalho em congresso: solicitar título, evento, ano e modalidade antes de cadastrar separadamente da palestra.
 - O currículo tem foco em defesa médica; mantido o foco no paciente do HTML mais recente, sem restaurar serviços retirados nessa versão.
 - Mantidos telefone e e-mail dos HTMLs. O currículo também informa outro e-mail e domínio, cuja adoção não foi solicitada.
@@ -55,3 +55,5 @@ Telefone e WhatsApp: +55 15 99172-6572. Botão flutuante em todas as páginas. M
 Página artigos.html com estado vazio real, sem artigos fictícios. Para publicar, inserir cards com links para páginas HTML completas e metadados próprios; revisar autoria e fontes. Só então incluir páginas de conteúdo no sitemap.
 
 Atualização 10/11/2026: fotos reais em WebP responsivo; retrato prioritário e foto interna com lazy loading. Seis perguntas do PDF adaptadas após conferência em fontes oficiais. Seção acadêmica reduzida a atualização profissional, sem destaque da palestra sobre defesa médica. Submeter redação jurídica adaptada à profissional antes do lançamento público.
+
+Correção da cliente em 10/11/2026: 2023 ouvinte; 2024 palestrante convidada; 2025 IMKN ouvinte; 2026 IMKN apresentação de trabalho científico. Publicação de artigo em livro prevista para o primeiro semestre de 2027. Título do trabalho científico não informado.
