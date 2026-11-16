@@ -1,0 +1,11 @@
+{
+  "name": "Dra. Giorgia Lúcio – Odontologia Estética",
+  "short_name": "Dra. Giorgia Lúcio",
+  "lang": "pt-BR",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#fbf7f1",
+  "theme_color": "#7a4b30",
+  "icons": [{ "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}
